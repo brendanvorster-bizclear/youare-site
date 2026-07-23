@@ -212,13 +212,17 @@
       font-family: var(--serif); font-style: italic; font-size: 15px;
       color: var(--muted); letter-spacing: 0.02em; margin-bottom: 24px;
     }
-    .quote { position: relative; transition: opacity 0.7s ease; }
-    .quote::before {
-      content: '\201C';
-      font-family: var(--serif); color: var(--accent);
-      font-size: 92px; line-height: 0.8;
-      position: absolute; left: -4px; top: -6px;
-      opacity: 0.26; pointer-events: none;
+    .quote { position: relative; padding-top: 30px; transition: opacity 0.7s ease; }
+    .quote-open {
+      position: absolute; top: -2px; left: -3px;
+      font-family: var(--serif); font-size: 74px; line-height: 1;
+      color: var(--accent); opacity: 0.32; pointer-events: none;
+    }
+    .quote-close {
+      display: block; text-align: right; margin-top: 8px;
+      height: 30px; overflow: hidden;
+      font-family: var(--serif); font-size: 74px; line-height: 0.42;
+      color: var(--accent); opacity: 0.32;
     }
     .quote-text {
       font-family: var(--serif); font-weight: 400;
@@ -227,7 +231,7 @@
       max-width: 60ch;
     }
     .quote-by {
-      margin-top: 22px; font-size: 14px; letter-spacing: 0.03em; color: var(--muted);
+      margin-top: 6px; font-size: 14px; letter-spacing: 0.03em; color: var(--muted);
     }
     .quote-by strong { color: var(--ink); font-weight: 600; }
     .quote-by .qdot { color: var(--accent); margin: 0 4px; }
@@ -307,7 +311,9 @@
     <div class="wrap">
       <p class="voices-lead">You are not the first to begin here.</p>
       <blockquote class="quote" id="quote">
+        <span class="quote-open">&ldquo;</span>
         <p class="quote-text" id="quoteText"></p>
+        <span class="quote-close">&rdquo;</span>
         <p class="quote-by" id="quoteBy"></p>
       </blockquote>
     </div>
@@ -320,32 +326,17 @@
 
       <div class="statement">
         <button class="statement-btn" aria-expanded="false">
-          <span class="you">You are</span> wanting to find out more about Brendan.
+          <span class="you">You are</span> wondering how this works, and who with.
           <span class="mark"></span>
         </button>
         <div class="panel">
           <div class="panel-inner">
             <p>I'm <strong>Brendan Vorster</strong>, a <strong>registered psychologist</strong>. I work
-              with people through coaching, counselling and therapy — whichever meets you where you are.</p>
-            <p>It's psychology brought to real life: working with the deeper drivers beneath what you
-              do, not just the surface. The work is built around identity and change rather than
-              problems alone, and the aim is simple — to help you understand what's really holding you
-              back, and move forward with clarity, purpose and confidence.</p>
-            <p class="cred">Registered Psychologist &middot; New Zealand Psychologists Board (reg. 90-07630)</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="statement">
-        <button class="statement-btn" aria-expanded="false">
-          <span class="you">You are</span> wanting to know what working together looks like.
-          <span class="mark"></span>
-        </button>
-        <div class="panel">
-          <div class="panel-inner">
+              with people through coaching, counselling and therapy — whichever meets you where you are.
+              It's psychology brought to real life: working with the deeper drivers beneath what you do,
+              not just the surface.</p>
             <p>Work is one-to-one and built around you — a considered, confidential space to make
-              sense of things and take deliberate steps. Depending on what you need, that might look
-              like coaching, counselling or therapy. I work with individuals, and with leaders and
+              sense of things and take deliberate steps. I work with individuals, and with leaders and
               teams inside organisations. Online, or in person by arrangement.</p>
             <p class="tag-label">For you</p>
             <div class="tags">
@@ -362,6 +353,7 @@
               <span class="tag">Team development</span>
               <span class="tag">Organisational coaching</span>
             </div>
+            <p class="cred">Registered Psychologist &middot; New Zealand Psychologists Board (reg. 90-07630)</p>
           </div>
         </div>
       </div>
