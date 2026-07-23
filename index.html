@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>You are — Coaching Psychology</title>
-  <meta name="description" content="You are — Coaching Psychology with registered psychologist Brendan Vorster. Understand what's holding you back and move forward with clarity, purpose and confidence.">
-  <meta property="og:title" content="You are — Coaching Psychology">
-  <meta property="og:description" content="Understand what's holding you back. Move forward with clarity, purpose and confidence.">
+  <title>You are — Registered psychologist · coaching, counselling &amp; therapy</title>
+  <meta name="description" content="You are — Brendan Vorster, a registered psychologist offering coaching, counselling and therapy. Understand what's holding you back and move forward with clarity, purpose and confidence.">
+  <meta property="og:title" content="You are — Registered psychologist · coaching, counselling &amp; therapy">
+  <meta property="og:description" content="Coaching, counselling and therapy with a registered psychologist. Understand what's holding you back. Move forward with clarity, purpose and confidence.">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='7' fill='%23B25B3E'/%3E%3C/svg%3E">
   <style>
@@ -186,6 +186,32 @@
       padding: 7px 14px; border-radius: 100px;
     }
 
+    /* ---- Voices (client references) ---- */
+    .voices { padding: 46px 0 20px; }
+    .voices-lead {
+      font-family: var(--serif); font-style: italic; font-size: 15px;
+      color: var(--muted); letter-spacing: 0.02em; margin-bottom: 24px;
+    }
+    .quote { position: relative; transition: opacity 0.7s ease; }
+    .quote::before {
+      content: '\201C';
+      font-family: var(--serif); color: var(--accent);
+      font-size: 92px; line-height: 0.8;
+      position: absolute; left: -4px; top: -6px;
+      opacity: 0.26; pointer-events: none;
+    }
+    .quote-text {
+      font-family: var(--serif); font-weight: 400;
+      font-size: clamp(20px, 3vw, 27px); line-height: 1.45;
+      color: var(--ink); letter-spacing: -0.01em; position: relative;
+      max-width: 60ch;
+    }
+    .quote-by {
+      margin-top: 22px; font-size: 14px; letter-spacing: 0.03em; color: var(--muted);
+    }
+    .quote-by strong { color: var(--ink); font-weight: 600; }
+    .quote-by .qdot { color: var(--accent); margin: 0 4px; }
+
     /* ---- Contact ---- */
     .contact { padding: 70px 0 40px; text-align: left; }
     .contact h2 {
@@ -237,7 +263,7 @@
   <section class="hero">
     <div class="breath"></div>
     <div class="wrap">
-      <p class="kicker">Coaching Psychology</p>
+      <p class="kicker">Coaching · Counselling · Therapy</p>
       <h1>
         <span class="rot-line">You are</span>
         <span class="rotator" id="rotator">becoming.</span>
@@ -261,13 +287,12 @@
         </button>
         <div class="panel">
           <div class="panel-inner">
-            <p>I'm <strong>Brendan Vorster</strong>, a registered psychologist. <strong>You are</strong>
-              is Coaching Psychology — psychological insight brought to the work of growth, identity
-              and change. That means working with the deeper drivers behind what you do, not just
-              setting goals.</p>
-            <p>You Are is built around identity and transformation rather than problems alone.
-              The aim is simple: to help you understand what's really holding you back and move
-              forward with clarity, purpose and confidence.</p>
+            <p>I'm <strong>Brendan Vorster</strong>, a <strong>registered psychologist</strong>. I work
+              with people through coaching, counselling and therapy — whichever meets you where you are.</p>
+            <p>It's psychology brought to real life: working with the deeper drivers beneath what you
+              do, not just the surface. The work is built around identity and change rather than
+              problems alone, and the aim is simple — to help you understand what's really holding you
+              back, and move forward with clarity, purpose and confidence.</p>
             <p class="cred">Registered Psychologist &middot; general scope &middot; New Zealand Psychologists Board (reg. 90-07630)</p>
           </div>
         </div>
@@ -281,8 +306,9 @@
         <div class="panel">
           <div class="panel-inner">
             <p>Work is one-to-one and built around you — a considered, confidential space to make
-              sense of things and take deliberate steps. I work with individuals, and with leaders
-              and teams inside organisations. Online, or in person by arrangement.</p>
+              sense of things and take deliberate steps. Depending on what you need, that might look
+              like coaching, counselling or therapy. I work with individuals, and with leaders and
+              teams inside organisations. Online, or in person by arrangement.</p>
             <p class="tag-label">For you</p>
             <div class="tags">
               <span class="tag">Identity &amp; purpose</span>
@@ -327,10 +353,21 @@
           <div class="panel-inner">
             <p>Good. That's often the hardest part. Send a short note about what's bringing
               you here — you don't need to have it all worked out.</p>
-            <p><a href="mailto:brendanvorster@gmail.com" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">brendanvorster@gmail.com</a></p>
+            <p><a href="mailto:brendan@youare.nz" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">brendan@youare.nz</a></p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- VOICES / CLIENT REFERENCES -->
+  <section class="voices" id="voices">
+    <div class="wrap">
+      <p class="voices-lead">You are not the first to begin here.</p>
+      <blockquote class="quote" id="quote">
+        <p class="quote-text" id="quoteText"></p>
+        <p class="quote-by" id="quoteBy"></p>
+      </blockquote>
     </div>
   </section>
 
@@ -340,13 +377,13 @@
       <h2><span class="you">You are</span> allowed to begin.</h2>
       <p>Whatever's brought you here, it's worth taking seriously. Start with a message —
         no commitment, just a conversation.</p>
-      <a class="email-link" href="mailto:brendanvorster@gmail.com">brendanvorster@gmail.com →</a>
+      <a class="email-link" href="mailto:brendan@youare.nz">brendan@youare.nz →</a>
     </div>
   </section>
 
   <footer>
     <div class="wrap">
-      <p>You are <span class="fdot">·</span> Coaching Psychology <span class="fdot">·</span> Brendan Vorster, Registered Psychologist</p>
+      <p>You are <span class="fdot">·</span> Coaching, counselling &amp; therapy <span class="fdot">·</span> Brendan Vorster, Registered Psychologist</p>
       <p>&copy; 2026 You Are Ltd</p>
     </div>
   </footer>
@@ -394,6 +431,38 @@
         }
       });
     });
+
+    // Client references — rotate through, gentle fade.
+    // To add more, drop another { text, by, role } into this list; they rotate automatically.
+    (function () {
+      var voices = [
+        {
+          text: "Brendan's approach is deeply human. He meets people where they are, but never lets them stay there. With authenticity, insight, and a quiet strength, he guides leaders through complexity, helping them find clarity, courage, and connection. Whether you're navigating change, building culture, or simply trying to be a better leader, Brendan is the kind of partner who makes tough journeys not only possible but also enjoyable.",
+          by: "Ian Carter",
+          role: "Chief Store Operations Officer"
+        }
+        // Add more references here.
+      ];
+      var qt = document.getElementById('quoteText');
+      var qb = document.getElementById('quoteBy');
+      var quote = document.getElementById('quote');
+      var i = 0;
+      function render(n) {
+        qt.textContent = voices[n].text;
+        qb.innerHTML = '<strong>' + voices[n].by + '</strong>' +
+          (voices[n].role ? '<span class="qdot">·</span>' + voices[n].role : '');
+      }
+      render(0);
+      if (voices.length > 1) {
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        setInterval(function () {
+          i = (i + 1) % voices.length;
+          if (reduce) { render(i); return; }
+          quote.style.opacity = '0';
+          setTimeout(function () { render(i); quote.style.opacity = '1'; }, 700);
+        }, 9000);
+      }
+    })();
   </script>
 </body>
 </html>
