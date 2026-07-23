@@ -207,7 +207,7 @@
     }
 
     /* ---- Voices (client references) ---- */
-    .voices { padding: 46px 0 20px; }
+    .voices { padding: 46px 0 20px; scroll-margin-top: 84px; }
     .voices-lead {
       font-family: var(--serif); font-style: italic; font-size: 15px;
       color: var(--muted); letter-spacing: 0.02em; margin-bottom: 24px;
@@ -247,6 +247,11 @@
       padding-bottom: 4px; transition: color 0.25s ease, gap 0.25s ease;
     }
     .email-link:hover { color: var(--accent); gap: 18px; }
+    .contact-actions {
+      display: flex; flex-direction: column; align-items: flex-start;
+      gap: 16px; margin-top: 30px;
+    }
+    .contact-actions .email-link { margin-top: 0; }
 
     /* ---- Footer ---- */
     footer {
@@ -294,6 +299,17 @@
         <a class="btn-primary" href="#contact">Get in touch</a>
         <button class="scroll-cue" id="scrollCue"><span class="bar"></span> Or explore below</button>
       </div>
+    </div>
+  </section>
+
+  <!-- VOICES / CLIENT REFERENCES -->
+  <section class="voices" id="voices">
+    <div class="wrap">
+      <p class="voices-lead">You are not the first to begin here.</p>
+      <blockquote class="quote" id="quote">
+        <p class="quote-text" id="quoteText"></p>
+        <p class="quote-by" id="quoteBy"></p>
+      </blockquote>
     </div>
   </section>
 
@@ -375,21 +391,11 @@
           <div class="panel-inner">
             <p>Good. That's often the hardest part. Send a short note about what's bringing
               you here — you don't need to have it all worked out.</p>
-            <p><a href="mailto:brendan@youare.nz" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">brendan@youare.nz</a></p>
+            <p style="margin-bottom:6px;"><a href="mailto:brendan@youare.nz" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">brendan@youare.nz</a></p>
+            <p><a href="tel:+6421390191" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">+64 21 390 191</a></p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- VOICES / CLIENT REFERENCES -->
-  <section class="voices" id="voices">
-    <div class="wrap">
-      <p class="voices-lead">You are not the first to begin here.</p>
-      <blockquote class="quote" id="quote">
-        <p class="quote-text" id="quoteText"></p>
-        <p class="quote-by" id="quoteBy"></p>
-      </blockquote>
     </div>
   </section>
 
@@ -399,7 +405,10 @@
       <h2><span class="you">You are</span> allowed to begin.</h2>
       <p>Whatever's brought you here, it's worth taking seriously. Start with a message —
         no commitment, just a conversation.</p>
-      <a class="email-link" href="mailto:brendan@youare.nz">brendan@youare.nz →</a>
+      <div class="contact-actions">
+        <a class="email-link" href="mailto:brendan@youare.nz">brendan@youare.nz →</a>
+        <a class="email-link" href="tel:+6421390191">+64 21 390 191 →</a>
+      </div>
     </div>
   </section>
 
@@ -431,7 +440,7 @@
 
     // Scroll cue
     document.getElementById('scrollCue').addEventListener('click', function () {
-      document.getElementById('start').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.getElementById('voices').scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
     // Accordion statements (single open at a time)
@@ -461,7 +470,7 @@
         {
           text: "Brendan's approach is deeply human. He meets people where they are, but never lets them stay there. With authenticity, insight, and a quiet strength, he guides leaders through complexity, helping them find clarity, courage, and connection. Whether you're navigating change, building culture, or simply trying to be a better leader, Brendan is the kind of partner who makes tough journeys not only possible but also enjoyable.",
           by: "Ian Carter",
-          role: "Chief Store Operations Officer"
+          role: "Chief Store Operations Officer, The Warehouse Group"
         },
         {
           text: "Brendan is amazing at simplifying complex topics, breaking them down into understandable steps and explaining with clarity the why. He was also great at seeking to understand the business drivers, and the team dynamics and capability, to ensure we are setting things up to deliver value for the organisation.",
