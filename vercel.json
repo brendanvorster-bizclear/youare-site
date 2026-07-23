@@ -6,8 +6,5 @@
       "destination": "https://www.youare.nz/$1",
       "permanent": true
     }
-  ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
