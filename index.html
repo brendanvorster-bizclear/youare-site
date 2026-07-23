@@ -60,6 +60,14 @@
       background: var(--accent); align-self: center;
       transform: translateY(1px);
     }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; }
+    .nav-cta {
+      font-family: var(--sans); font-size: 14px; letter-spacing: 0.01em;
+      color: var(--ink); text-decoration: none;
+      border-bottom: 1.5px solid var(--accent); padding-bottom: 2px;
+      transition: color 0.2s ease;
+    }
+    .nav-cta:hover { color: var(--accent); }
 
     /* ---- Hero ---- */
     .hero {
@@ -109,8 +117,20 @@
       max-width: 30ch;
       line-height: 1.5;
     }
+    .hero-actions {
+      margin-top: 46px; display: flex; align-items: center;
+      gap: 26px; flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-family: var(--sans); font-size: 15px; letter-spacing: 0.01em;
+      color: #fff; background: var(--accent);
+      padding: 14px 26px; border-radius: 100px; text-decoration: none;
+      transition: background 0.25s ease, gap 0.25s ease;
+    }
+    .btn-primary::after { content: '→'; }
+    .btn-primary:hover { background: var(--accent-dark); gap: 14px; }
     .scroll-cue {
-      margin-top: 58px;
       display: inline-flex; align-items: center; gap: 10px;
       font-size: 14px; letter-spacing: 0.04em; color: var(--muted);
       background: none; border: 0; cursor: pointer; font-family: var(--sans);
@@ -213,7 +233,7 @@
     .quote-by .qdot { color: var(--accent); margin: 0 4px; }
 
     /* ---- Contact ---- */
-    .contact { padding: 70px 0 40px; text-align: left; }
+    .contact { padding: 70px 0 40px; text-align: left; scroll-margin-top: 86px; }
     .contact h2 {
       font-family: var(--serif); font-weight: 400;
       font-size: clamp(28px, 5vw, 40px); line-height: 1.1; letter-spacing: -0.01em;
@@ -256,6 +276,7 @@
         <span class="a">You are</span>
         <span class="dot"></span>
       </div>
+      <a class="nav-cta" href="#contact">Get in touch</a>
     </div>
   </header>
 
@@ -269,20 +290,21 @@
         <span class="rotator" id="rotator">becoming.</span>
       </h1>
       <p class="lede">Understand what's holding you back. Move forward with clarity, purpose and confidence.</p>
-      <button class="scroll-cue" id="scrollCue">
-        <span class="bar"></span> Begin where you are
-      </button>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#contact">Get in touch</a>
+        <button class="scroll-cue" id="scrollCue"><span class="bar"></span> Or explore below</button>
+      </div>
     </div>
   </section>
 
   <!-- CONVERSATION -->
   <section class="conversation" id="start">
     <div class="wrap">
-      <p class="conv-intro">Finish the sentence that feels most true right now.</p>
+      <p class="conv-intro">Not sure where to start? Tap whichever line sounds like you — it opens up.</p>
 
       <div class="statement">
         <button class="statement-btn" aria-expanded="false">
-          <span class="you">You are</span> wondering who you'd be working with.
+          <span class="you">You are</span> wanting to find out more about Brendan.
           <span class="mark"></span>
         </button>
         <div class="panel">
@@ -300,7 +322,7 @@
 
       <div class="statement">
         <button class="statement-btn" aria-expanded="false">
-          <span class="you">You are</span> ready to do some real work.
+          <span class="you">You are</span> wanting to know what working together looks like.
           <span class="mark"></span>
         </button>
         <div class="panel">
@@ -330,7 +352,7 @@
 
       <div class="statement">
         <button class="statement-btn" aria-expanded="false">
-          <span class="you">You are</span> trying to work out if it's the right fit.
+          <span class="you">You are</span> wondering whether it's right for you.
           <span class="mark"></span>
         </button>
         <div class="panel">
@@ -346,7 +368,7 @@
 
       <div class="statement">
         <button class="statement-btn" aria-expanded="false">
-          <span class="you">You are</span> ready to reach out.
+          <span class="you">You are</span> ready to get in touch.
           <span class="mark"></span>
         </button>
         <div class="panel">
@@ -372,7 +394,7 @@
   </section>
 
   <!-- CONTACT -->
-  <section class="contact">
+  <section class="contact" id="contact">
     <div class="wrap">
       <h2><span class="you">You are</span> allowed to begin.</h2>
       <p>Whatever's brought you here, it's worth taking seriously. Start with a message —
