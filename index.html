@@ -88,7 +88,7 @@
     }
     @keyframes breathe {
       from { transform: translate(-50%, -50%) scale(0.92); opacity: 0.75; }
-      to   { transform: translate(-50%, -50%) scale(1.08); opacity: 1; }
+      to { transform: translate(-50%, -50%) scale(1.08); opacity: 1; }
     }
     .hero .wrap { position: relative; z-index: 1; }
 
@@ -173,7 +173,7 @@
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
     .statement-btn .mark::before { top: 8px; left: 0; width: 18px; height: 2px; }
-    .statement-btn .mark::after  { left: 8px; top: 0; width: 2px; height: 18px; }
+    .statement-btn .mark::after { left: 8px; top: 0; width: 2px; height: 18px; }
     .statement.open .mark::after { transform: rotate(90deg); opacity: 0; }
     .statement.open .statement-btn { color: var(--accent); }
 
@@ -326,18 +326,17 @@
 
       <div class="statement">
         <button class="statement-btn" aria-expanded="false">
-          <span class="you">You are</span> wondering how this works, and who with.
+          <span class="you">You are</span> wondering what we'd work on, and why.
           <span class="mark"></span>
         </button>
         <div class="panel">
           <div class="panel-inner">
             <p>I'm <strong>Brendan Vorster</strong>, a <strong>registered psychologist</strong>. I work
-              with people through coaching, counselling and therapy — whichever meets you where you are.
-              It's psychology brought to real life: working with the deeper drivers beneath what you do,
-              not just the surface.</p>
-            <p>Work is one-to-one and built around you — a considered, confidential space to make
-              sense of things and take deliberate steps. I work with individuals, and with leaders and
-              teams inside organisations. Online, or in person by arrangement.</p>
+              with people through coaching, counselling and therapy, whichever meets you where you are.</p>
+            <p>Underneath the work sit two simple questions: why are you doing this, and who's helping
+              you carry it? From there we get clear on what actually drives you, your sense of
+              <strong>identity and purpose</strong>, rather than only the problem in front of you.
+              That's usually where direction and lasting change come from.</p>
             <p class="tag-label">For you</p>
             <div class="tags">
               <span class="tag">Identity &amp; purpose</span>
@@ -360,29 +359,29 @@
 
       <div class="statement">
         <button class="statement-btn" aria-expanded="false">
-          <span class="you">You are</span> wondering whether it's right for you.
+          <span class="you">You are</span> wondering whether we'd be a fit.
           <span class="mark"></span>
         </button>
         <div class="panel">
           <div class="panel-inner">
-            <p>The most important thing in this work isn't a method — it's whether you feel
-              understood. That's why we start with a short, no-pressure conversation to see
-              how it sits.</p>
-            <p>If it's a fit, we keep going. If it's not, I'll happily point you toward
-              someone who might be a better match. Either way, reaching out costs you nothing.</p>
+            <p>The most important thing here isn't a method, it's whether you feel understood. So we
+              start with a short, no-pressure conversation to see how it sits.</p>
+            <p>You're not meant to work it all out on your own; part of the point is having someone in
+              your corner. If we're a fit, we keep going. If we're not, I'll gladly point you toward
+              someone who is. Either way, reaching out costs you nothing.</p>
           </div>
         </div>
       </div>
 
       <div class="statement">
         <button class="statement-btn" aria-expanded="false">
-          <span class="you">You are</span> ready to get in touch.
+          <span class="you">You are</span> ready to take the first step.
           <span class="mark"></span>
         </button>
         <div class="panel">
           <div class="panel-inner">
-            <p>Good. That's often the hardest part. Send a short note about what's bringing
-              you here — you don't need to have it all worked out.</p>
+            <p>Good, that's usually the hardest part. No forms and no commitment: just send a short
+              note about what's bringing you here. You don't need to have it all worked out.</p>
             <p style="margin-bottom:6px;"><a href="mailto:brendan@youare.nz" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">brendan@youare.nz</a></p>
             <p><a href="tel:+6421390191" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">+64 21 390 191</a></p>
           </div>
@@ -415,7 +414,7 @@
     // Gentle word rotator in the hero
     (function () {
       var words = ['becoming.', 'more than this moment.', 'not defined by this.',
-                   'ready to move.', 'capable of change.', 'enough.', 'worth the work.'];
+        'ready to move.', 'capable of change.', 'enough.', 'worth the work.'];
       var el = document.getElementById('rotator');
       var i = 0;
       var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
