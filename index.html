@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>You are — Registered psychologist · coaching, counselling &amp; therapy</title>
-  <meta name="description" content="You are — Brendan Vorster, a registered psychologist offering coaching, counselling and therapy. Understand what's holding you back and move forward with clarity, purpose and confidence.">
-  <meta property="og:title" content="You are — Registered psychologist · coaching, counselling &amp; therapy">
-  <meta property="og:description" content="Coaching, counselling and therapy with a registered psychologist. Understand what's holding you back. Move forward with clarity, purpose and confidence.">
+  <title>You are &middot; Brendan Vorster, Registered Psychologist &middot; Coaching, counselling and therapy</title>
+  <meta name="description" content="Brendan Vorster, a registered psychologist in Auckland offering coaching, counselling and therapy for individuals, leaders and teams. Online across New Zealand, or in person by arrangement.">
+  <meta property="og:title" content="You are &middot; Registered psychologist, coaching, counselling and therapy">
+  <meta property="og:description" content="Understand what is actually driving you, and decide what to do next. Coaching, counselling and therapy with a registered psychologist.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.youare.nz">
+  <meta name="theme-color" content="#F4F0E9">
+  <link rel="canonical" href="https://www.youare.nz">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='7' fill='%23B25B3E'/%3E%3C/svg%3E">
   <style>
     :root {
@@ -22,269 +25,118 @@
       --serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Times New Roman', serif;
       --sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
-
     body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: var(--sans);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      overflow-x: hidden;
+      background: var(--bg); color: var(--ink); font-family: var(--sans);
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility; overflow-x: hidden;
     }
-
     ::selection { background: var(--accent); color: #fff; }
-
     .wrap { width: 100%; max-width: 760px; margin: 0 auto; padding: 0 28px; }
+    a { color: var(--accent); }
+    .skip { position: absolute; left: -9999px; top: 0; background: var(--accent); color: #fff; padding: 10px 16px; z-index: 99; text-decoration: none; }
+    .skip:focus { left: 10px; top: 10px; }
 
-    /* ---- Top wordmark ---- */
+    /* Header */
     header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-      padding: 22px 0;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 22px 0;
       backdrop-filter: saturate(140%) blur(8px);
       -webkit-backdrop-filter: saturate(140%) blur(8px);
-      background: linear-gradient(to bottom, rgba(244,240,233,0.9), rgba(244,240,233,0));
+      background: linear-gradient(to bottom, rgba(244,240,233,0.94), rgba(244,240,233,0));
     }
-    .wordmark {
-      display: flex; align-items: baseline; gap: 9px;
-      font-family: var(--serif);
-      letter-spacing: 0.01em;
-    }
+    .wordmark { display: flex; align-items: baseline; gap: 9px; font-family: var(--serif); letter-spacing: 0.01em; }
     .wordmark .a { font-size: 19px; font-weight: 400; color: var(--ink); }
-    .wordmark .dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--accent); align-self: center;
-      transform: translateY(1px);
-    }
+    .wordmark .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); align-self: center; transform: translateY(1px); }
     header .wrap { display: flex; align-items: center; justify-content: space-between; }
-    .nav-cta {
-      font-family: var(--sans); font-size: 14px; letter-spacing: 0.01em;
-      color: var(--ink); text-decoration: none;
-      border-bottom: 1.5px solid var(--accent); padding-bottom: 2px;
-      transition: color 0.2s ease;
-    }
+    .nav-cta { font-family: var(--sans); font-size: 14px; letter-spacing: 0.01em; color: var(--ink); text-decoration: none; border-bottom: 1.5px solid var(--accent); padding-bottom: 2px; transition: color 0.2s ease; }
     .nav-cta:hover { color: var(--accent); }
 
-    /* ---- Hero ---- */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 120px 0 90px;
-    }
+    /* Hero */
+    .hero { position: relative; min-height: 92vh; display: flex; flex-direction: column; justify-content: center; padding: 130px 0 80px; }
     .breath {
-      position: absolute; top: 42%; left: 50%;
-      width: 620px; height: 620px;
-      transform: translate(-50%, -50%);
+      position: absolute; top: 42%; left: 50%; width: 620px; height: 620px; transform: translate(-50%, -50%);
       background: radial-gradient(circle at center, rgba(178,91,62,0.16), rgba(178,91,62,0.05) 42%, transparent 68%);
-      border-radius: 50%;
-      z-index: 0;
-      animation: breathe 9s ease-in-out infinite alternate;
-      pointer-events: none;
+      border-radius: 50%; z-index: 0; animation: breathe 9s ease-in-out infinite alternate; pointer-events: none;
     }
-    @keyframes breathe {
-      from { transform: translate(-50%, -50%) scale(0.92); opacity: 0.75; }
-      to { transform: translate(-50%, -50%) scale(1.08); opacity: 1; }
-    }
+    @keyframes breathe { from { transform: translate(-50%, -50%) scale(0.92); opacity: 0.75; } to { transform: translate(-50%, -50%) scale(1.08); opacity: 1; } }
     .hero .wrap { position: relative; z-index: 1; }
-
-    .kicker {
-      font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 30px; font-weight: 500;
-    }
-    .hero h1 {
-      font-family: var(--serif);
-      font-weight: 400;
-      font-size: clamp(48px, 11vw, 104px);
-      line-height: 1.02;
-      letter-spacing: -0.015em;
-    }
+    .kicker { font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin-bottom: 30px; font-weight: 500; }
+    .hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(46px, 10.5vw, 100px); line-height: 1.02; letter-spacing: -0.015em; }
     .hero h1 .rot-line { display: block; }
-    .rotator {
-      color: var(--accent);
-      font-style: italic;
-      transition: opacity 0.7s ease;
-      display: inline-block;
-    }
-    .lede {
-      margin-top: 34px;
-      font-size: clamp(18px, 2.4vw, 21px);
-      color: var(--muted);
-      max-width: 30ch;
-      line-height: 1.5;
-    }
-    .hero-actions {
-      margin-top: 46px; display: flex; align-items: center;
-      gap: 26px; flex-wrap: wrap;
-    }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 9px;
-      font-family: var(--sans); font-size: 15px; letter-spacing: 0.01em;
-      color: #fff; background: var(--accent);
-      padding: 14px 26px; border-radius: 100px; text-decoration: none;
-      transition: background 0.25s ease, gap 0.25s ease;
-    }
-    .btn-primary::after { content: '→'; }
+    .rotator { color: var(--accent); font-style: italic; transition: opacity 0.7s ease; display: inline-block; }
+    .lede { margin-top: 34px; font-size: clamp(18px, 2.4vw, 21px); color: var(--muted); max-width: 34ch; line-height: 1.5; }
+    .hero-actions { margin-top: 44px; display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 9px; font-family: var(--sans); font-size: 15px; letter-spacing: 0.01em; color: #fff; background: var(--accent); padding: 14px 26px; border-radius: 100px; text-decoration: none; transition: background 0.25s ease, gap 0.25s ease; }
+    .btn-primary::after { content: '\2192'; }
     .btn-primary:hover { background: var(--accent-dark); gap: 14px; }
-    .scroll-cue {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: 14px; letter-spacing: 0.04em; color: var(--muted);
-      background: none; border: 0; cursor: pointer; font-family: var(--sans);
-    }
-    .scroll-cue .bar {
-      width: 34px; height: 1px; background: var(--muted);
-      display: inline-block; transition: width 0.3s ease, background 0.3s ease;
-    }
-    .scroll-cue:hover .bar { width: 52px; background: var(--accent); }
-    .scroll-cue:hover { color: var(--ink); }
 
-    /* ---- Conversation (nav-as-statements) ---- */
-    .conversation { padding: 30px 0 40px; }
-    .conv-intro {
-      font-family: var(--serif); font-size: 15px; font-style: italic;
-      color: var(--muted); margin-bottom: 8px; letter-spacing: 0.02em;
-    }
-    .statement {
-      border-top: 1px solid var(--line);
-    }
-    .statement:last-of-type { border-bottom: 1px solid var(--line); }
-    .statement-btn {
-      width: 100%; text-align: left; background: none; border: 0; cursor: pointer;
-      font-family: var(--serif); color: var(--ink);
-      font-size: clamp(23px, 4.2vw, 33px); line-height: 1.25;
-      padding: 30px 46px 30px 0;
-      position: relative;
-      transition: color 0.25s ease;
-      letter-spacing: -0.01em;
-    }
-    .statement-btn .you { color: var(--muted); font-style: italic; }
-    .statement-btn:hover { color: var(--accent); }
-    .statement-btn .mark {
-      position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
-      width: 18px; height: 18px;
-    }
-    .statement-btn .mark::before,
-    .statement-btn .mark::after {
-      content: ''; position: absolute; background: var(--accent);
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-    .statement-btn .mark::before { top: 8px; left: 0; width: 18px; height: 2px; }
-    .statement-btn .mark::after { left: 8px; top: 0; width: 2px; height: 18px; }
-    .statement.open .mark::after { transform: rotate(90deg); opacity: 0; }
-    .statement.open .statement-btn { color: var(--accent); }
+    /* Sections */
+    section { scroll-margin-top: 86px; }
+    .band { padding: 12px 0 56px; }
+    .eyebrow { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--muted); letter-spacing: 0.02em; margin-bottom: 26px; }
+    h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(27px, 4.6vw, 38px); line-height: 1.15; letter-spacing: -0.012em; }
+    h2 .you { color: var(--muted); font-style: italic; }
+    h3 { font-family: var(--serif); font-weight: 400; font-size: 21px; line-height: 1.3; letter-spacing: -0.005em; }
+    p { color: var(--muted); }
+    .lead-p { margin-top: 18px; max-width: 56ch; }
 
-    .panel {
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.4s ease;
-      opacity: 0;
-    }
-    .statement.open .panel { opacity: 1; }
-    .panel-inner {
-      padding: 0 0 38px; max-width: 56ch;
-    }
-    .panel-inner p { color: var(--muted); font-size: 17px; margin-bottom: 16px; }
-    .panel-inner p strong { color: var(--ink); font-weight: 600; }
-    .panel-inner .cred {
-      font-size: 13.5px; color: var(--muted); letter-spacing: 0.01em;
-      margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--line);
-    }
-    .panel-inner .tag-label {
-      font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--ink); font-weight: 600; margin-top: 24px; margin-bottom: 0;
-    }
-    .panel-inner .tag-label:first-of-type { margin-top: 4px; }
-    .panel-inner .tags {
-      display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px;
-    }
-    .panel-inner .tag {
-      font-size: 13px; letter-spacing: 0.03em; color: var(--ink);
-      background: var(--accent-soft); border: 1px solid var(--line);
-      padding: 7px 14px; border-radius: 100px;
-    }
+    /* Offer blocks */
+    .offer { border-top: 1px solid var(--line); padding: 26px 0 24px; }
+    .offer:last-of-type { border-bottom: 1px solid var(--line); }
+    .offer h3 { color: var(--ink); }
+    .offer p { margin-top: 10px; font-size: 16.5px; max-width: 58ch; }
+    .offer .note { margin-top: 10px; font-size: 14.5px; color: var(--muted); font-style: italic; }
 
-    /* ---- Voices (client references) ---- */
-    .voices { padding: 46px 0 20px; scroll-margin-top: 84px; }
-    .voices-lead {
-      font-family: var(--serif); font-style: italic; font-size: 15px;
-      color: var(--muted); letter-spacing: 0.02em; margin-bottom: 24px;
-    }
-    .quote { position: relative; padding-top: 30px; transition: opacity 0.7s ease; }
-    .quote-open {
-      position: absolute; top: -2px; left: -3px;
-      font-family: var(--serif); font-size: 74px; line-height: 1;
-      color: var(--accent); opacity: 0.32; pointer-events: none;
-    }
-    .quote-close {
-      display: block; text-align: right; margin-top: 2px;
-      height: 40px; overflow: hidden;
-      font-family: var(--serif); font-size: 74px; line-height: 1;
-      color: var(--accent); opacity: 0.32;
-    }
-    .quote-text {
-      font-family: var(--serif); font-weight: 400;
-      font-size: clamp(20px, 3vw, 27px); line-height: 1.45;
-      color: var(--ink); letter-spacing: -0.01em; position: relative;
-      max-width: 60ch;
-    }
-    .quote-by {
-      margin-top: 6px; font-size: 14px; letter-spacing: 0.03em; color: var(--muted);
-    }
-    .quote-by strong { color: var(--ink); font-weight: 600; }
-    .quote-by .qdot { color: var(--accent); margin: 0 4px; }
+    /* How I work */
+    .points { margin-top: 8px; }
+    .point { border-top: 1px solid var(--line); padding: 24px 0; display: grid; grid-template-columns: 1.05fr 1.35fr; gap: 26px; align-items: start; }
+    .point:last-child { border-bottom: 1px solid var(--line); }
+    .point h3 { color: var(--ink); }
+    .point p { font-size: 16.5px; }
+    @media (max-width: 620px) { .point { grid-template-columns: 1fr; gap: 8px; } }
 
-    /* ---- Contact ---- */
-    .contact { padding: 70px 0 40px; text-align: left; scroll-margin-top: 86px; }
-    .contact h2 {
-      font-family: var(--serif); font-weight: 400;
-      font-size: clamp(28px, 5vw, 40px); line-height: 1.1; letter-spacing: -0.01em;
-    }
-    .contact h2 .you { color: var(--muted); font-style: italic; }
-    .contact p { color: var(--muted); margin-top: 18px; max-width: 46ch; }
-    .email-link {
-      display: inline-flex; align-items: center; gap: 12px;
-      margin-top: 30px; font-family: var(--serif); font-size: clamp(22px, 4vw, 30px);
-      color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--accent);
-      padding-bottom: 4px; transition: color 0.25s ease, gap 0.25s ease;
-    }
+    /* Voices */
+    .voice { border-top: 1px solid var(--line); padding: 30px 0 26px; }
+    .voice:last-of-type { border-bottom: 1px solid var(--line); }
+    .voice blockquote { font-family: var(--serif); font-size: clamp(18px, 2.4vw, 21px); line-height: 1.5; color: var(--ink); letter-spacing: -0.005em; max-width: 62ch; }
+    .voice .by { margin-top: 14px; font-size: 14px; letter-spacing: 0.02em; color: var(--muted); }
+    .voice .by strong { color: var(--ink); font-weight: 600; }
+    .voice .by .qdot { color: var(--accent); margin: 0 5px; }
+
+    /* About */
+    .about p { margin-top: 16px; max-width: 58ch; font-size: 16.5px; }
+    .cred { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); letter-spacing: 0.01em; }
+    .cred strong { color: var(--ink); font-weight: 600; }
+
+    /* Contact */
+    .contact { padding: 56px 0 30px; }
+    .contact p { margin-top: 18px; max-width: 48ch; }
+    .contact-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; margin-top: 30px; }
+    .email-link { display: inline-flex; align-items: center; gap: 12px; font-family: var(--serif); font-size: clamp(21px, 3.6vw, 28px); color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 4px; transition: color 0.25s ease, gap 0.25s ease; }
     .email-link:hover { color: var(--accent); gap: 18px; }
-    .contact-actions {
-      display: flex; flex-direction: column; align-items: flex-start;
-      gap: 16px; margin-top: 30px;
-    }
-    .contact-actions .email-link { margin-top: 0; }
+    .safety { margin-top: 44px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 14px; padding: 20px 24px; }
+    .safety p { margin: 0; font-size: 15px; max-width: 60ch; }
+    .safety strong { color: var(--ink); font-weight: 600; }
 
-    /* ---- Footer ---- */
-    footer {
-      border-top: 1px solid var(--line);
-      margin-top: 70px; padding: 34px 0 60px;
-    }
-    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
+    /* Footer */
+    footer { border-top: 1px solid var(--line); margin-top: 60px; padding: 32px 0 58px; }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
     footer p { font-size: 13px; color: var(--muted); letter-spacing: 0.02em; }
     footer .fdot { color: var(--accent); }
+    footer a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
+    footer a:hover { color: var(--accent); }
 
-    @media (max-width: 560px) {
-      .wrap { padding: 0 22px; }
-      .statement-btn { padding-right: 40px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .breath { animation: none; }
-      .rotator { transition: none; }
-    }
+    @media (max-width: 560px) { .wrap { padding: 0 22px; } .hero { min-height: 88vh; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .breath { animation: none; } .rotator { transition: none; } }
   </style>
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+
   <header>
     <div class="wrap">
-      <div class="wordmark">
-        <span class="a">You are</span>
-        <span class="dot"></span>
-      </div>
+      <div class="wordmark"><span class="a">You are</span><span class="dot"></span></div>
       <a class="nav-cta" href="#contact">Get in touch</a>
     </div>
   </header>
@@ -293,202 +145,135 @@
   <section class="hero">
     <div class="breath"></div>
     <div class="wrap">
-      <p class="kicker">Coaching · Counselling · Therapy</p>
-      <h1>
-        <span class="rot-line">You are</span>
-        <span class="rotator" id="rotator">becoming.</span>
-      </h1>
-      <p class="lede">Understand what's holding you back. Move forward with clarity, purpose and confidence.</p>
+      <p class="kicker">Coaching &middot; Counselling &middot; Therapy</p>
+      <h1><span class="rot-line">You are</span> <span class="rotator" id="rotator">becoming.</span></h1>
+      <p class="lede">Understand what is actually driving you, and decide what to do next.</p>
       <div class="hero-actions">
         <a class="btn-primary" href="#contact">Get in touch</a>
-        <button class="scroll-cue" id="scrollCue"><span class="bar"></span> Or explore below</button>
       </div>
     </div>
   </section>
 
-  <!-- VOICES / CLIENT REFERENCES -->
-  <section class="voices" id="voices">
-    <div class="wrap">
-      <p class="voices-lead">You are not the first to begin here.</p>
-      <blockquote class="quote" id="quote">
-        <span class="quote-open">&ldquo;</span>
-        <p class="quote-text" id="quoteText"></p>
-        <span class="quote-close">&rdquo;</span>
-        <p class="quote-by" id="quoteBy"></p>
-      </blockquote>
-    </div>
-  </section>
+  <main id="main">
 
-  <!-- CONVERSATION -->
-  <section class="conversation" id="start">
-    <div class="wrap">
-      <p class="conv-intro">Not sure where to start? Tap whichever line sounds like you — it opens up.</p>
+    <!-- WHAT I DO -->
+    <section class="band" id="work">
+      <div class="wrap">
+        <p class="eyebrow">You are wondering what we would work on.</p>
+        <h2><span class="you">You are</span> welcome to start anywhere.</h2>
+        <p class="lead-p">I am Brendan Vorster, a registered psychologist. I work with people through coaching, counselling and therapy, whichever fits where you actually are. Online across New Zealand, or in person in Auckland by arrangement.</p>
 
-      <div class="statement">
-        <button class="statement-btn" aria-expanded="false">
-          <span class="you">You are</span> wondering what we'd work on, and why.
-          <span class="mark"></span>
-        </button>
-        <div class="panel">
-          <div class="panel-inner">
-            <p>I'm <strong>Brendan Vorster</strong>, a <strong>registered psychologist</strong>. I work
-              with people through coaching, counselling and therapy, whichever meets you where you are.</p>
-            <p>Underneath the work sit two simple questions: why are you doing this, and who's helping
-              you carry it? From there we get clear on what actually drives you, your sense of
-              <strong>identity and purpose</strong>, rather than only the problem in front of you.
-              That's usually where direction and lasting change come from.</p>
-            <p class="tag-label">For you</p>
-            <div class="tags">
-              <span class="tag">Identity &amp; purpose</span>
-              <span class="tag">Career &amp; life transitions</span>
-              <span class="tag">Burnout &amp; wellbeing</span>
-              <span class="tag">Resilience</span>
-              <span class="tag">Decision-making</span>
-              <span class="tag">Personal growth</span>
-            </div>
-            <p class="tag-label">For organisations</p>
-            <div class="tags">
-              <span class="tag">Executive &amp; leadership coaching</span>
-              <span class="tag">Team development</span>
-              <span class="tag">Organisational coaching</span>
-            </div>
-            <p class="cred">Registered Psychologist &middot; New Zealand Psychologists Board (reg. 90-07630)</p>
+        <div class="offer">
+          <h3>For you</h3>
+          <p>Identity and purpose, career and life transitions, burnout and wellbeing, confidence, resilience, and the decisions that keep circling back without resolving.</p>
+        </div>
+
+        <div class="offer">
+          <h3>For leaders and teams</h3>
+          <p>Executive and leadership coaching, team development, and work on how a system is actually operating: roles, authority, boundaries, and the task everyone assumes everyone else understands. Useful when the problem is not really one person.</p>
+        </div>
+
+        <div class="offer">
+          <h3>For health and wellbeing</h3>
+          <p>The psychological side of living with a health condition or changing a health behaviour: motivation, adherence, habits, sleep, pain, and the adjustment that follows a diagnosis.</p>
+          <p class="note">This works alongside your medical care, never instead of it. I do not diagnose physical conditions, prescribe diets or exercise, or advise on medication.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW I WORK -->
+    <section class="band" id="how">
+      <div class="wrap">
+        <p class="eyebrow">You are wondering how this would go.</p>
+        <h2><span class="you">You are</span> not starting from nothing.</h2>
+
+        <div class="points">
+          <div class="point">
+            <h3>We start with a conversation</h3>
+            <p>No forms and no commitment. Send a short note about what is bringing you here. You do not need to have it worked out first, and reaching out costs you nothing.</p>
+          </div>
+          <div class="point">
+            <h3>Season before direction</h3>
+            <p>Some seasons call for movement and a clear goal. Others call for steadiness and rest before anything else is asked of you. Reading which one you are in comes before choosing what we do.</p>
+          </div>
+          <div class="point">
+            <h3>You know more than you think</h3>
+            <p>Most of what is useful is already somewhere in your own account of things. My job is to draw it out and help you see the pattern, rather than hand you my answer and hope it fits.</p>
+          </div>
+          <div class="point">
+            <h3>You are not meant to carry it alone</h3>
+            <p>Two questions sit underneath the work: why are you doing this, and who is helping you carry it. And if I am not the right person for what you need, I will say so and help you find who is.</p>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="statement">
-        <button class="statement-btn" aria-expanded="false">
-          <span class="you">You are</span> wondering whether we'd be a fit.
-          <span class="mark"></span>
-        </button>
-        <div class="panel">
-          <div class="panel-inner">
-            <p>The most important thing here isn't a method, it's whether you feel understood. So we
-              start with a short, no-pressure conversation to see how it sits.</p>
-            <p>You're not meant to work it all out on your own; part of the point is having someone in
-              your corner. If we're a fit, we keep going. If we're not, I'll gladly point you toward
-              someone who is. Either way, reaching out costs you nothing.</p>
-          </div>
+    <!-- VOICES -->
+    <section class="band" id="voices">
+      <div class="wrap">
+        <p class="eyebrow">You are not the first to begin here.</p>
+
+        <div class="voice">
+          <blockquote>&ldquo;Brendan&rsquo;s approach is deeply human. He meets people where they are, but never lets them stay there. With authenticity, insight, and a quiet strength, he guides leaders through complexity, helping them find clarity, courage, and connection. Whether you&rsquo;re navigating change, building culture, or simply trying to be a better leader, Brendan is the kind of partner who makes tough journeys not only possible but also enjoyable.&rdquo;</blockquote>
+          <p class="by"><strong>Ian Carter</strong><span class="qdot">&middot;</span>Chief Store Operations Officer, The Warehouse Group</p>
+        </div>
+
+        <div class="voice">
+          <blockquote>&ldquo;Brendan is amazing at simplifying complex topics, breaking them down into understandable steps and explaining with clarity the why. He was also great at seeking to understand the business drivers, and the team dynamics and capability, to ensure we are setting things up to deliver value for the organisation.&rdquo;</blockquote>
+          <p class="by"><strong>Brooke Zondane</strong><span class="qdot">&middot;</span>GM People Partnering, Air New Zealand</p>
         </div>
       </div>
+    </section>
 
-      <div class="statement">
-        <button class="statement-btn" aria-expanded="false">
-          <span class="you">You are</span> ready to take the first step.
-          <span class="mark"></span>
-        </button>
-        <div class="panel">
-          <div class="panel-inner">
-            <p>Good, that's usually the hardest part. No forms and no commitment: just send a short
-              note about what's bringing you here. You don't need to have it all worked out.</p>
-            <p style="margin-bottom:6px;"><a href="mailto:brendan@youare.nz" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">brendan@youare.nz</a></p>
-            <p><a href="tel:+6421390191" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">+64 21 390 191</a></p>
-          </div>
+    <!-- ABOUT -->
+    <section class="band about" id="about">
+      <div class="wrap">
+        <p class="eyebrow">You are wondering who you would be talking to.</p>
+        <h2><span class="you">You are</span> allowed to ask that first.</h2>
+        <p>I have spent more than a decade working with people and with organisations, which means a conversation here can hold both the person in front of me and the system they work inside. I am a registered psychologist, and I keep my practice under professional supervision.</p>
+        <p>My own working conviction, for what it is worth: the relationship does more of the work than any method does. Methods still matter, and I use ones with evidence behind them, but they sit second.</p>
+        <p class="cred"><strong>Brendan Vorster</strong>, Registered Psychologist &middot; New Zealand Psychologists Board, reg. 90-07630 &middot; Auckland, New Zealand</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="band contact" id="contact">
+      <div class="wrap">
+        <h2><span class="you">You are</span> allowed to begin.</h2>
+        <p>Whatever brought you here is worth taking seriously. Start with a message. No commitment, just a conversation.</p>
+        <div class="contact-actions">
+          <a class="email-link" href="mailto:brendan@youare.nz">brendan@youare.nz &rarr;</a>
+          <a class="email-link" href="tel:+6421390191">+64 21 390 191 &rarr;</a>
+        </div>
+
+        <div class="safety">
+          <p><strong>If you need help urgently, please do not wait for a reply here.</strong> Contact your GP, free call or text <a href="tel:1737">1737</a> any time to talk with a trained counsellor, or call 111 in an emergency.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="wrap">
-      <h2><span class="you">You are</span> allowed to begin.</h2>
-      <p>Whatever's brought you here, it's worth taking seriously. Start with a message —
-        no commitment, just a conversation.</p>
-      <div class="contact-actions">
-        <a class="email-link" href="mailto:brendan@youare.nz">brendan@youare.nz →</a>
-        <a class="email-link" href="tel:+6421390191">+64 21 390 191 →</a>
-      </div>
-    </div>
-  </section>
+  </main>
 
   <footer>
     <div class="wrap">
-      <p>You are <span class="fdot">·</span> Coaching, counselling &amp; therapy <span class="fdot">·</span> Brendan Vorster, Registered Psychologist</p>
-      <p>&copy; 2026 You Are Ltd</p>
+      <p>You are <span class="fdot">&middot;</span> Coaching, counselling and therapy <span class="fdot">&middot;</span> Brendan Vorster, Registered Psychologist</p>
+      <p>&copy; 2026 You Are Ltd <span class="fdot">&middot;</span> <a href="/card">Card</a></p>
     </div>
   </footer>
 
   <script>
-    // Gentle word rotator in the hero
     (function () {
-      var words = ['becoming.', 'more than this moment.', 'not defined by this.',
-        'ready to move.', 'capable of change.', 'enough.', 'worth the work.'];
+      var words = ['becoming.', 'more than this moment.', 'not defined by this.', 'ready to move.', 'capable of change.', 'enough.', 'worth the work.'];
       var el = document.getElementById('rotator');
+      if (!el) return;
       var i = 0;
       var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       setInterval(function () {
         i = (i + 1) % words.length;
         if (reduce) { el.textContent = words[i]; return; }
         el.style.opacity = '0';
-        setTimeout(function () {
-          el.textContent = words[i];
-          el.style.opacity = '1';
-        }, 700);
-      }, 3000);
-    })();
-
-    // Scroll cue
-    document.getElementById('scrollCue').addEventListener('click', function () {
-      document.getElementById('voices').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-
-    // Accordion statements (single open at a time)
-    var statements = document.querySelectorAll('.statement');
-    statements.forEach(function (st) {
-      var btn = st.querySelector('.statement-btn');
-      var panel = st.querySelector('.panel');
-      btn.addEventListener('click', function () {
-        var isOpen = st.classList.contains('open');
-        statements.forEach(function (other) {
-          other.classList.remove('open');
-          other.querySelector('.panel').style.maxHeight = null;
-          other.querySelector('.statement-btn').setAttribute('aria-expanded', 'false');
-        });
-        if (!isOpen) {
-          st.classList.add('open');
-          panel.style.maxHeight = panel.scrollHeight + 'px';
-          btn.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-
-    // Client references — rotate through, gentle fade.
-    // To add more, drop another { text, by, role } into this list; they rotate automatically.
-    (function () {
-      var voices = [
-        {
-          text: "Brendan's approach is deeply human. He meets people where they are, but never lets them stay there. With authenticity, insight, and a quiet strength, he guides leaders through complexity, helping them find clarity, courage, and connection. Whether you're navigating change, building culture, or simply trying to be a better leader, Brendan is the kind of partner who makes tough journeys not only possible but also enjoyable.",
-          by: "Ian Carter",
-          role: "Chief Store Operations Officer, The Warehouse Group"
-        },
-        {
-          text: "Brendan is amazing at simplifying complex topics, breaking them down into understandable steps and explaining with clarity the why. He was also great at seeking to understand the business drivers, and the team dynamics and capability, to ensure we are setting things up to deliver value for the organisation.",
-          by: "Brooke Zondane",
-          role: "GM People Partnering, Air New Zealand"
-        }
-        // Add more references here.
-      ];
-      var qt = document.getElementById('quoteText');
-      var qb = document.getElementById('quoteBy');
-      var quote = document.getElementById('quote');
-      var i = 0;
-      function render(n) {
-        qt.textContent = voices[n].text;
-        qb.innerHTML = '<strong>' + voices[n].by + '</strong>' +
-          (voices[n].role ? '<span class="qdot">·</span>' + voices[n].role : '');
-      }
-      render(0);
-      if (voices.length > 1) {
-        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        setInterval(function () {
-          i = (i + 1) % voices.length;
-          if (reduce) { render(i); return; }
-          quote.style.opacity = '0';
-          setTimeout(function () { render(i); quote.style.opacity = '1'; }, 700);
-        }, 9000);
-      }
+        setTimeout(function () { el.textContent = words[i]; el.style.opacity = '1'; }, 700);
+      }, 3400);
     })();
   </script>
 </body>
