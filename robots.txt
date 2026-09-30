@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /planted
+
+Sitemap: https://www.youare.nz/sitemap.xml
