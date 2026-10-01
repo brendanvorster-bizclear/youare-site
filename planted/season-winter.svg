@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+<title>A tree in winter</title>
+<defs>
+ <radialGradient id="warm" cx=".15" cy="1" r=".95"><stop stop-color="#B25B3E" stop-opacity=".18"/><stop offset="1" stop-color="#B25B3E" stop-opacity="0"/></radialGradient>
+ <radialGradient id="ember"><stop stop-color="#CE7B5C" stop-opacity=".2"/><stop offset="1" stop-color="#CE7B5C" stop-opacity="0"/></radialGradient>
+ <linearGradient id="wash" x2=".8" y2="1"><stop stop-color="#F4F0E9" stop-opacity=".16"/><stop offset="1" stop-color="#F4F0E9" stop-opacity="0"/></linearGradient>
+ <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".08" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".035"/></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" result="texture"/><feBlend in="SourceGraphic" in2="texture" mode="soft-light"/></filter>
+</defs>
+<g transform="translate(150 193) scale(0.86)"><g stroke="#F4F0E9" fill="none" stroke-linecap="round">
+    <path d="M0,0 C-4,-35 8,-45 0,-72 C-6,-104 -12,-128 -27,-146 M0,-66 C-10,-94 -30,-116 -58,-126 M-7,-82 C-21,-91 -37,-100 -62,-102 M0,-58 C6,-90 24,-105 53,-132 M10,-83 C31,-103 51,-101 72,-109 M-10,-100 C-18,-127 -13,-145 -9,-160 M6,-80 C12,-115 10,-137 26,-155" stroke-width="1.45"/>
+    <path d="M-33,-117 C-34,-128 -40,-137 -48,-144 M40,-121 L43,-142 M26,-101 C41,-118 57,-120 64,-135" stroke-width=".6" opacity=".65"/>
+    </g><circle cx="-9" cy="-160" r="2.3" fill="#CE7B5C" opacity=".9"/><circle cx="43" cy="-142" r="2" fill="#CE7B5C" opacity=".9"/><circle cx="64" cy="-135" r="1.5" fill="#CE7B5C" opacity=".9"/><circle cx="-48" cy="-144" r="1.6" fill="#CE7B5C" opacity=".9"/><circle cx="26" cy="-155" r="2" fill="#CE7B5C" opacity=".9"/><g fill="none" stroke-linecap="round"><path d="M0,0 C-4,35 -30,60 -66,79 M0,0 C4,37 35,58 71,80 M0,0 C-3,45 4,59 0,96" stroke="#F4F0E9" stroke-width="1.1" opacity=".65"/><path d="M0,0 C-15,54 -18,85 -9,111 M0,0 C15,46 20,71 33,96 M-43,63 C-42,79 -53,84 -52,92" stroke="#CE7B5C" stroke-width=".65" opacity=".6"/></g></g></svg>

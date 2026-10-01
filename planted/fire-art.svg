@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="260" viewBox="0 0 1000 260">
+<title>A quiet charcoal fire with a warm glow</title>
+<defs>
+ <radialGradient id="warm" cx=".15" cy="1" r=".95"><stop stop-color="#B25B3E" stop-opacity=".18"/><stop offset="1" stop-color="#B25B3E" stop-opacity="0"/></radialGradient>
+ <radialGradient id="ember"><stop stop-color="#CE7B5C" stop-opacity=".2"/><stop offset="1" stop-color="#CE7B5C" stop-opacity="0"/></radialGradient>
+ <linearGradient id="wash" x2=".8" y2="1"><stop stop-color="#F4F0E9" stop-opacity=".16"/><stop offset="1" stop-color="#F4F0E9" stop-opacity="0"/></linearGradient>
+ <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".08" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".035"/></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" result="texture"/><feBlend in="SourceGraphic" in2="texture" mode="soft-light"/></filter>
+</defs>
+<g transform="translate(500 174) scale(1.15)"><ellipse cy="-30" rx="135" ry="110" fill="url(#ember)"/>
+    <path d="M-34 5 C-78 -34 -28 -70 -15 -111 C-4 -86 27 -75 19 -41 C43 -52 39 -75 44 -86 C83 -40 62 -1 26 9 C5 18 -12 17 -34 5Z" fill="#B25B3E" opacity=".32"/>
+    <g fill="none" stroke="#CE7B5C" stroke-linecap="round"><path d="M-34 5 C-78 -34 -28 -70 -15 -111 C-4 -86 27 -75 19 -41 C43 -52 39 -75 44 -86 C83 -40 62 -1 26 9" stroke-width="1.1"/><path d="M-13 6 C-39 -25 -9 -46 -6 -67 C-2 -39 27 -21 16 7" stroke="#F4F0E9" stroke-width="1.1" opacity=".8"/><path d="M-61 20 C-10 13 18 26 57 19 M-46 29 C-19 33 8 25 42 31" stroke-width="1.4"/><path d="M-110 40 C-65 60 56 58 114 41 M-142 52 C-75 80 96 71 148 51" stroke-width=".65" opacity=".45"/></g><circle cx="-4" cy="-119" r="1.4" fill="#CE7B5C"/><circle cx="25" cy="-102" r="1" fill="#F4F0E9"/></g></svg>
