@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /planted
+Disallow: /marriage
 
 Sitemap: https://www.youare.nz/sitemap.xml
