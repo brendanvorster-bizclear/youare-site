@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App Fast &middot; Less noise. More you.</title>
+<meta name="description" content="App Fast puts a shield between you and the apps that pull you in, using iPhone's Screen Time, with scripture and encouragement on every shield. Free for 14 days on the App Store.">
+<link rel="canonical" href="https://www.youare.nz/appfast">
+<meta property="og:type" content="website">
+<meta property="og:title" content="App Fast &middot; Less noise. More you.">
+<meta property="og:description" content="App Fast puts a shield between you and the apps that pull you in, using iPhone's Screen Time, with scripture and encouragement on every shield. Free for 14 days on the App Store.">
+<meta property="og:url" content="https://www.youare.nz/appfast">
+<meta name="theme-color" content="#0F0B1E">
+<meta name="apple-itunes-app" content="app-id=6761638822">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%236B46C1'/%3E%3Cpath d='M12 2.2 L19.5 4.7 L19.5 12.3 C19.5 16.5 16 20.2 12 21.3 C8 20.2 4.5 16.5 4.5 12.3 L4.5 4.7 Z' fill='none' stroke='white' stroke-width='1.4'/%3E%3Cpath d='M12 5v3.4M10.5 6.4h3' stroke='white' stroke-width='1.3' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --primary: #6B46C1;
+    --primary-dark: #553C9A;
+    --primary-light: #9F7AEA;
+    --accent: #D97706;
+    --accent-light: #F59E0B;
+    --bg: #0F0B1E;
+    --bg-card: #1A1333;
+    --bg-card-hover: #231A45;
+    --text: #E8E0F0;
+    --text-muted: #A89BC2;
+    --text-heading: #FFFFFF;
+    --border: #2D2255;
+    --success: #10B981;
+    --warning: #D97706;
+    --danger: #EF4444;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Navigation */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(15, 11, 30, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    padding: 0 24px;
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-logo-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text-heading); }
+
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 140px 24px 80px;
+    text-align: center;
+    background: radial-gradient(ellipse at 50% 0%, rgba(107, 70, 193, 0.15) 0%, transparent 70%);
+  }
+
+  .hero-mark {
+    width: 104px;
+    height: 104px;
+    margin: 0 auto 28px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 16px 50px rgba(107, 70, 193, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+  }
+
+  .hero-store-cue {
+    margin-top: 22px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: 0.01em;
+  }
+
+  .hero-store-cue .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--primary-light);
+    box-shadow: 0 0 10px rgba(159, 122, 234, 0.6);
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(107, 70, 193, 0.2);
+    border: 1px solid rgba(107, 70, 193, 0.3);
+    color: var(--primary-light);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    color: var(--text-heading);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero h1 span {
+    background: linear-gradient(135deg, var(--primary-light), var(--accent-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 36px;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(107, 70, 193, 0.3);
+  }
+
+  .hero-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(107, 70, 193, 0.4);
+  }
+
+  .hero-tagline {
+    margin-top: 16px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* Sections */
+  section { padding: 80px 24px; }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .section-subtitle {
+    color: var(--text-muted);
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 48px;
+    font-size: 1.05rem;
+  }
+
+  /* Tier Cards */
+  .tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .tier-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+
+  .tier-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+  }
+
+  .tier-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .tier-1 .tier-icon { background: rgba(139, 92, 246, 0.15); }
+  .tier-2 .tier-icon { background: rgba(217, 119, 6, 0.15); }
+  .tier-3 .tier-icon { background: rgba(239, 68, 68, 0.15); }
+
+  .tier-card h3 {
+    font-size: 1.3rem;
+    color: var(--text-heading);
+    margin-bottom: 4px;
+  }
+
+  .tier-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+  }
+
+  .tier-1 .tier-label { color: var(--primary-light); }
+  .tier-2 .tier-label { color: var(--accent); }
+  .tier-3 .tier-label { color: var(--danger); }
+
+  .tier-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+  /* Features */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+  }
+
+  .feature-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+
+  .feature-card:hover { border-color: var(--primary); }
+
+  .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 14px;
+  }
+
+  .feature-card h3 {
+    font-size: 1.1rem;
+    color: var(--text-heading);
+    margin-bottom: 8px;
+  }
+
+  .feature-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  /* FAQ */
+  .faq-list { max-width: 700px; margin: 0 auto; }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--text-heading);
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-align: left;
+    width: 100%;
+    padding: 0;
+    font-family: inherit;
+  }
+
+  .faq-question:hover { color: var(--primary-light); }
+
+  .faq-chevron {
+    transition: transform 0.3s;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+
+  .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 500px;
+    padding-top: 12px;
+  }
+
+  /* Support / Contact */
+  .support-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .support-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+  }
+
+  .support-card h3 {
+    color: var(--text-heading);
+    margin: 12px 0 8px;
+    font-size: 1.15rem;
+  }
+
+  .support-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .support-card a {
+    color: var(--primary-light);
+    text-decoration: none;
+  }
+
+  .support-card a:hover { text-decoration: underline; }
+
+  .support-icon { font-size: 2rem; }
+
+  /* Legal pages */
+  .legal {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .legal h2 {
+    color: var(--text-heading);
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+  }
+
+  .legal .last-updated {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 24px;
+  }
+
+  .legal h3 {
+    color: var(--text-heading);
+    font-size: 1.15rem;
+    margin: 24px 0 8px;
+  }
+
+  .legal p, .legal li {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+
+  .legal ul {
+    padding-left: 24px;
+    margin-bottom: 12px;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 24px;
+    text-align: center;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    list-style: none;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+
+  .footer-links a:hover { color: var(--text-heading); }
+
+  .footer-copy {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+
+  /* Video Grid */
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+    gap: 32px;
+  }
+
+  .video-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+
+  .video-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary-light);
+  }
+
+  .video-embed {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .video-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .video-info {
+    padding: 20px 24px;
+  }
+
+  .video-info h3 {
+    color: var(--text-heading);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .video-speaker {
+    color: var(--primary-light);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .video-info p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .video-tag {
+    display: inline-block;
+    background: rgba(107, 70, 193, 0.15);
+    color: var(--primary-light);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-top: 10px;
+  }
+
+  /* Page visibility */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: rgba(15, 11, 30, 0.98);
+      padding: 16px 24px;
+      gap: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hamburger { display: block; }
+    .tiers-grid { grid-template-columns: 1fr; }
+    .video-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.2rem; }
+    .legal { padding: 24px; }
+  }
+
+  .hero-secondary { display:block; margin-top:14px; font-size:0.95rem; color: var(--text-muted); text-decoration:none; }
+  .hero-secondary:hover { color: var(--text-heading); }
+  .section-note { text-align:center; color: var(--text-muted); margin-top: 28px; font-size: 0.98rem; }
+  .grace { max-width: 680px; margin: 0 auto; text-align: center; }
+  .grace p { color: var(--text); font-size: 1.15rem; line-height: 1.8; }
+  .footer-made { margin-top: 10px; font-size: 0.85rem; color: var(--text-muted); }
+  .footer-made a { color: var(--text-muted); }
+  .footer-made a:hover { color: var(--text-heading); }
+</style>
+
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" onclick="showPage('home')">
+      <div class="nav-logo-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true">
+          <path d="M12 2.2 L19.5 4.7 L19.5 12.3 C19.5 16.5 16 20.2 12 21.3 C8 20.2 4.5 16.5 4.5 12.3 L4.5 4.7 Z" fill="rgba(255,255,255,0.22)" stroke="#FFFFFF" stroke-width="1.2" stroke-linejoin="round"/>
+          <line x1="12" y1="5" x2="12" y2="8.4" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="10.5" y1="6.4" x2="13.5" y2="6.4" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round"/>
+          <rect x="9.4" y="10.2" width="1.7" height="7.2" rx="0.5" fill="#FFFFFF"/>
+          <rect x="12.9" y="10.2" width="1.7" height="7.2" rx="0.5" fill="#FFFFFF"/>
+        </svg>
+      </div>
+      App Fast
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#how-it-works" onclick="showPage('home')">How it works</a></li>
+      <li><a href="#features" onclick="showPage('home')">Features</a></li>
+      <li><a href="#faq" onclick="showPage('home')">FAQ</a></li>
+      <li><a href="#food-for-thought" onclick="showPage('home')">Watch</a></li>
+      <li><a href="#" onclick="showPage('support')">Support</a></li>
+      <li><a href="#" onclick="showPage('privacy')">Privacy</a></li>
+      <li><a href="#" onclick="showPage('terms')">Terms</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleNav()" aria-label="Menu">&#9776;</button>
+  </div>
+</nav>
+
+<!-- HOME PAGE -->
+<div id="page-home" class="page active">
+
+  <section class="hero">
+    <div class="hero-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="60" height="60" xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true">
+          <path d="M12 2.2 L19.5 4.7 L19.5 12.3 C19.5 16.5 16 20.2 12 21.3 C8 20.2 4.5 16.5 4.5 12.3 L4.5 4.7 Z" fill="rgba(255,255,255,0.18)" stroke="#FFFFFF" stroke-width="1.2" stroke-linejoin="round"/>
+          <line x1="12" y1="5" x2="12" y2="8.4" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round"/>
+          <line x1="10.5" y1="6.4" x2="13.5" y2="6.4" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round"/>
+          <rect x="9.4" y="10.2" width="1.7" height="7.2" rx="0.5" fill="#FFFFFF"/>
+          <rect x="12.9" y="10.2" width="1.7" height="7.2" rx="0.5" fill="#FFFFFF"/>
+        </svg>
+    </div>
+    <div class="hero-badge">Faith-based screen time for iPhone</div>
+    <h1>Take back your time.<br><span>Fast from your phone.</span></h1>
+    <p>Choose the apps that pull you in. App Fast puts a shield in front of them using iPhone's Screen Time, so each time you reach for one you get a moment to pause.</p>
+    <a href="https://apps.apple.com/app/app-fast/id6761638822" class="hero-cta" target="_blank" rel="noopener">Get App Fast on the App Store</a>
+    <a href="#how-it-works" class="hero-secondary">See how it works &#8595;</a>
+    <p class="hero-tagline">Less noise. More you.</p>
+    <div class="hero-store-cue"><span class="dot"></span>Free for 14 days, then monthly or every six months</div>
+  </section>
+
+  <section id="how-it-works">
+    <div class="section-inner">
+      <h2 class="section-title">Two ways to fast</h2>
+      <p class="section-subtitle">Choose the fast that suits each app.</p>
+
+      <div class="tiers-grid">
+        <div class="tier-card tier-1">
+          <p class="tier-label">A pause</p>
+          <h3>Lighter Fast</h3>
+          <p>The shield gives you a moment before the app opens. You can still break the fast, and it's a choice you make on purpose.</p>
+        </div>
+        <div class="tier-card tier-3">
+          <p class="tier-label">A firm line</p>
+          <h3>Full Fast</h3>
+          <p>The shield holds and the app stays closed. What's left is the invitation to do something else.</p>
+        </div>
+      </div>
+      <p class="section-note">You can also set fasting hours for each app, so it's only shielded when you want it to be.</p>
+    </div>
+  </section>
+
+  <section id="features" style="background: rgba(26, 19, 51, 0.5);">
+    <div class="section-inner">
+      <h2 class="section-title">What's inside</h2>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Your shield, your way</h3>
+          <p>Choose what the shield shows: an encouraging line anchored by a Bible verse, the verse on its own, or your own words.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Per-app control</h3>
+          <p>Pick the apps you want to fast from, set Lighter or Full Fast for each, and choose the hours each one is shielded.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Streaks and stats</h3>
+          <p>See your holds, breaks and fasting streaks over time.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Encouraged Apps</h3>
+          <p>Pair your fasts with the apps you want more time in, like your Bible or prayer app.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Meditate</h3>
+          <p>Breathing exercises and guided meditation for a reset, plus Thought Bubbles, a quick game to help you refocus.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Crowns and Armor of God</h3>
+          <p>Your collection grows as you stay strong.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Screen Time shields</h3>
+          <p>App Fast uses Apple's Screen Time framework, so the shield sits in front of the app at system level.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Stays on your phone</h3>
+          <p>App Fast collects no data, and everything stays on your device.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="grace">
+    <div class="section-inner grace">
+      <h2 class="section-title">Built on grace</h2>
+      <p>Every shield is an invitation to pause and pray, and to remember what you wanted from your day. Like any fast, the point is what you make room for.</p>
+    </div>
+  </section>
+
+  <section id="faq" style="background: rgba(26, 19, 51, 0.5);">
+    <div class="section-inner">
+      <h2 class="section-title">Questions</h2>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How does App Fast shield apps?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">It uses Apple's Screen Time framework, the same technology behind iPhone's own Screen Time limits. The shield sits in front of the app at system level.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Can I open a fasted app if I need to?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">On a Lighter Fast you can choose to break the fast after a moment's pause. A Full Fast holds. If you need the app, open App Fast and change its fast or its fasting hours.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Does App Fast see my data?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">No. App Fast only knows which apps you've chosen and whether you kept or broke each fast, and that stays on your phone. It can't see inside your apps, read your messages or view your browsing, and nothing is sent to a server.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Is App Fast a parental controls app?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">No. App Fast is for managing your own phone. It has no remote management and doesn't monitor anyone else's device.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Does it work offline?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">Yes. Shields, settings and stats work on your phone without an internet connection.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Will I still get notifications from fasted apps?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">Possibly. A shield stops the app opening, but its notifications can still arrive, depending on your iPhone settings. For a complete break, turn off notifications for that app in Settings.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What does fasting mean here?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">A fast is a voluntary step back from something for a season. App Fast applies that to your phone. The scripture is there if you want it, and you can put your own words on the shield.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What does it cost?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">App Fast is free for 14 days with full access and no card needed. After that you can continue with a monthly or six-month subscription through the App Store. Subscriptions renew automatically unless cancelled at least 24 hours before the end of the period, and you can manage or cancel them in Settings. If you used App Fast before subscriptions began, Premium stays free for you.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="food-for-thought">
+    <div class="section-inner">
+      <h2 class="section-title">Food for thought</h2>
+      <p class="section-subtitle">Four talks on attention and screens.</p>
+
+      <div class="video-grid">
+        <div class="video-card">
+          <div class="video-embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/C74amJRp730" title="How a handful of tech companies control billions of minds every day" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-info">
+            <h3>How Tech Companies Control Billions of Minds Every Day</h3>
+            <div class="video-speaker">Tristan Harris &middot; former Google design ethicist</div>
+            <p>How app design competes for your attention, from notifications to autoplay, and the case for building technology more ethically.</p>
+            <span class="video-tag">TED Talk</span>
+          </div>
+        </div>
+        <div class="video-card">
+          <div class="video-embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/3E7hkPZ-HTk" title="Quit Social Media" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-info">
+            <h3>Why You Should Quit Social Media</h3>
+            <div class="video-speaker">Dr Cal Newport &middot; computer scientist, Georgetown University</div>
+            <p>Answers three common objections to quitting social media and argues that your attention is worth protecting.</p>
+            <span class="video-tag">TEDx Talk</span>
+          </div>
+        </div>
+        <div class="video-card">
+          <div class="video-embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/4TMPXK9tw5U" title="The Battle for Your Time" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-info">
+            <h3>The Battle for Your Time: Exposing the Costs of Social Media</h3>
+            <div class="video-speaker">Dino Ambrosi &middot; founder, Project Reboot</div>
+            <p>Adds up how much of a life social media takes, and what that time could go to instead.</p>
+            <span class="video-tag">TEDx Talk</span>
+          </div>
+        </div>
+        <div class="video-card">
+          <div class="video-embed">
+            <iframe src="https://embed.ted.com/talks/adam_alter_why_our_screens_make_us_less_happy" title="Why Our Screens Make Us Less Happy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-info">
+            <h3>Why Our Screens Make Us Less Happy</h3>
+            <div class="video-speaker">Adam Alter &middot; psychologist and author, NYU</div>
+            <p>Why screens are hard to put down, including how apps are designed without natural stopping points.</p>
+            <span class="video-tag">TED Talk</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="help" style="background: rgba(26, 19, 51, 0.5);">
+    <div class="section-inner">
+      <h2 class="section-title">Help</h2>
+
+      <div class="support-grid">
+        <div class="support-card">
+          <h3>Email</h3>
+          <p>For questions, bug reports or feedback, email <a href="mailto:appfast@youare.nz">appfast@youare.nz</a>.</p>
+        </div>
+        <div class="support-card">
+          <h3>Support</h3>
+          <p>Fixes for common problems are on the <a href="#" onclick="showPage('support'); return false;">support page</a>.</p>
+        </div>
+        <div class="support-card">
+          <h3>Subscriptions</h3>
+          <p>To manage or cancel, open Settings, tap your name, then Subscriptions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- PRIVACY POLICY PAGE -->
+<div id="page-privacy" class="page">
+  <section style="padding-top: 120px;">
+    <div class="section-inner">
+      <div class="legal">
+        <h2>Privacy Policy</h2>
+        <p class="last-updated">Last updated: 8 October 2026</p>
+
+        <h3>Overview</h3>
+        <p>This policy explains what App Fast ("the app") stores and how it's used. App Fast is made by You Are Ltd (formerly Bizclear Limited), a New Zealand company ("we", "us").</p>
+
+        <h3>What App Fast stores on your phone</h3>
+        <p>App Fast keeps a small amount of information, all of it on your device:</p>
+        <ul>
+          <li><strong>App selections:</strong> the apps you choose to fast from, the fast you set for each, and their fasting hours.</li>
+          <li><strong>Stats:</strong> your holds, breaks and fasting streaks.</li>
+          <li><strong>Encouraged app logs:</strong> time you choose to log in apps you want more time in.</li>
+          <li><strong>Settings:</strong> your preferences, including the words you put on your shields.</li>
+        </ul>
+
+        <h3>What we don't collect</h3>
+        <ul>
+          <li>We don't collect, view or transmit any content from your apps</li>
+          <li>We don't read your messages, emails or browsing history</li>
+          <li>We don't track your location</li>
+          <li>We don't collect information that identifies you</li>
+          <li>We don't use analytics or tracking tools</li>
+          <li>We don't share data with third parties</li>
+          <li>We don't show advertisements</li>
+        </ul>
+
+        <h3>Purchases</h3>
+        <p>Free trials and subscriptions are handled by Apple through the App Store. We don't receive your payment details.</p>
+
+        <h3>Screen Time</h3>
+        <p>App Fast uses Apple's Screen Time framework (FamilyControls, ManagedSettings and DeviceActivity) only to manage shields on your device. Within Apple's privacy framework the app receives anonymous tokens for the apps you select, so it doesn't learn which apps they are. All shield management happens on your device.</p>
+
+        <h3>Data storage</h3>
+        <p>Everything is stored on your device using standard iOS storage (UserDefaults and the app's shared container). Nothing is sent to a server. Removing App Fast removes this data.</p>
+
+        <h3>Children</h3>
+        <p>App Fast isn't designed for or directed at children under 13. It's for people managing their own screen time.</p>
+
+        <h3>Changes to this policy</h3>
+        <p>If this policy changes, the new version will be posted here with a new date.</p>
+
+        <h3>Contact</h3>
+        <p>Questions about this policy go to <a href="mailto:appfast@youare.nz" style="color: var(--primary-light);">appfast@youare.nz</a>.</p>
+
+        <p style="margin-top: 24px;"><strong>You Are Ltd</strong> (formerly Bizclear Limited)<br>New Zealand</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- TERMS OF USE PAGE -->
+<div id="page-terms" class="page">
+  <section style="padding-top: 120px;">
+    <div class="section-inner">
+      <div class="legal">
+        <h2>Terms of Use</h2>
+        <p class="last-updated">Last updated: 8 October 2026</p>
+
+        <h3>Acceptance of terms</h3>
+        <p>By downloading, installing or using App Fast ("the app"), you agree to these Terms of Use. If you don't agree, please don't use the app. App Fast is made by You Are Ltd (formerly Bizclear Limited), a New Zealand company ("we", "us"). Apple's <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" style="color: var(--primary-light);">standard licence agreement</a> for App Store apps also applies.</p>
+
+        <h3>What the app does</h3>
+        <p>App Fast is a personal screen time app. It uses Apple's Screen Time framework to place shields on the apps you choose, on your own device.</p>
+
+        <h3>Use of the app</h3>
+        <p>You agree to use App Fast only to manage your own screen time. You agree not to:</p>
+        <ul>
+          <li>Use the app to manage or monitor someone else's device without their knowledge and consent</li>
+          <li>Attempt to reverse-engineer, decompile or extract source code from the app</li>
+          <li>Use the app in any way that breaks applicable laws or regulations</li>
+        </ul>
+
+        <h3>Subscriptions</h3>
+        <p>App Fast offers a 14-day free trial, then a monthly or six-month subscription. Payment is taken by Apple through your Apple Account. Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. You can manage or cancel them in Settings. Removing the app doesn't cancel a subscription.</p>
+
+        <h3>Screen Time permission</h3>
+        <p>App Fast needs Screen Time authorisation (FamilyControls) to work. By granting it, you allow the app to place shields on the apps you select. You can withdraw this permission at any time in your device's Settings.</p>
+
+        <h3>No guarantee of blocking</h3>
+        <p>App Fast uses Apple's Screen Time framework, but we can't guarantee that every app will be shielded in every situation. iOS updates, system conditions and the way individual apps behave can affect shields. The app is a tool to support your intentions, and it isn't an absolute restriction system.</p>
+
+        <h3>Disclaimer of warranties</h3>
+        <p>App Fast is provided "as is" without warranty of any kind. We don't warrant that the app will be uninterrupted, error-free or meet your specific requirements. To the maximum extent permitted by law, we disclaim all warranties, express or implied.</p>
+
+        <h3>Limitation of liability</h3>
+        <p>To the maximum extent permitted by applicable law, You Are Ltd is not liable for any indirect, incidental, special, consequential or punitive damages arising from your use of the app.</p>
+
+        <h3>Your rights under New Zealand law</h3>
+        <p>Nothing in these terms limits any rights you have under the Consumer Guarantees Act 1993, the Fair Trading Act 1986 or any other law that can't be excluded.</p>
+
+        <h3>Changes to these terms</h3>
+        <p>We may change these terms. Changes will be posted here with a new date, and continuing to use the app after a change means you accept it.</p>
+
+        <h3>Governing law</h3>
+        <p>These terms are governed by the laws of New Zealand.</p>
+
+        <h3>Contact</h3>
+        <p>Questions about these terms go to <a href="mailto:appfast@youare.nz" style="color: var(--primary-light);">appfast@youare.nz</a>.</p>
+
+        <p style="margin-top: 24px;"><strong>You Are Ltd</strong> (formerly Bizclear Limited)<br>New Zealand</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- SUPPORT PAGE -->
+<div id="page-support" class="page">
+  <section style="padding-top: 120px;">
+    <div class="section-inner">
+      <div class="legal">
+        <h2>Support</h2>
+        <p class="last-updated">Email <a href="mailto:appfast@youare.nz" style="color: var(--primary-light);">appfast@youare.nz</a>. We aim to reply within two business days, New Zealand time.</p>
+
+        <h3>When you email</h3>
+        <p>It helps to include:</p>
+        <ul>
+          <li>Your iPhone model and iOS version</li>
+          <li>What you were trying to do</li>
+          <li>Steps to reproduce the problem, if you can</li>
+          <li>A screenshot or short video, if it helps</li>
+        </ul>
+
+        <h3>Common questions</h3>
+
+        <h4 style="margin-top: 24px; color: var(--primary-light);">My apps aren't being shielded</h4>
+        <p>App Fast needs Screen Time authorisation to place shields. If shields stop working:</p>
+        <ul>
+          <li>Open <strong>Settings &rarr; Screen Time</strong> and check Screen Time is on</li>
+          <li>Open App Fast and check your apps are still selected</li>
+          <li>iOS sometimes clears selections after an update, so choose your apps again if the list is empty</li>
+          <li>Restart your iPhone and try again</li>
+        </ul>
+
+        <h4 style="margin-top: 24px; color: var(--primary-light);">I can't get into an app on a Full Fast</h4>
+        <p>That's how a Full Fast works. To open the app, change it to a Lighter Fast or adjust its fasting hours in App Fast.</p>
+
+        <h4 style="margin-top: 24px; color: var(--primary-light);">How do I change which apps are shielded?</h4>
+        <p>Open App Fast and change your apps, their fast or their hours. Changes apply straight away.</p>
+
+        <h4 style="margin-top: 24px; color: var(--primary-light);">Do you collect my data?</h4>
+        <p>No. App Fast runs on your phone and sends nothing to us. The <a href="#" onclick="showPage('privacy'); return false;" style="color: var(--primary-light);">Privacy Policy</a> has the details.</p>
+
+        <h4 style="margin-top: 24px; color: var(--primary-light);">Subscriptions and codes</h4>
+        <p>App Fast is free for 14 days, then monthly or every six months, billed by Apple. To manage or cancel, open <strong>Settings</strong>, tap your name, then <strong>Subscriptions</strong>. You can redeem a code inside App Fast.</p>
+
+        <h3>Reporting a bug</h3>
+        <p>Email <a href="mailto:appfast@youare.nz" style="color: var(--primary-light);">appfast@youare.nz</a> with as much detail as you can. A short video or screenshot helps.</p>
+
+        <h3>Ideas</h3>
+        <p>Ideas for making App Fast more useful are welcome at <a href="mailto:appfast@youare.nz" style="color: var(--primary-light);">appfast@youare.nz</a>.</p>
+
+        <h3>Removing the app</h3>
+        <p>Press and hold the App Fast icon and tap <strong>Remove App</strong>. Your data lives on your phone and goes with the app. Removing App Fast doesn't cancel a subscription, so cancel that in Settings first. You can also review <strong>Settings &rarr; Screen Time</strong> to withdraw App Fast's access.</p>
+
+        <p style="margin-top: 24px;"><strong>You Are Ltd</strong> (formerly Bizclear Limited)<br>New Zealand</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <ul class="footer-links">
+      <li><a href="#" onclick="showPage('home')">Home</a></li>
+      <li><a href="https://apps.apple.com/app/app-fast/id6761638822" target="_blank" rel="noopener">App Store</a></li>
+      <li><a href="#faq" onclick="showPage('home')">FAQ</a></li>
+      <li><a href="#" onclick="showPage('support')">Support</a></li>
+      <li><a href="#" onclick="showPage('privacy')">Privacy Policy</a></li>
+      <li><a href="#" onclick="showPage('terms')">Terms of Use</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 You Are Ltd &middot; App Fast &middot; Less noise. More you.</p>
+    <p class="footer-made">Made in New Zealand by <a href="https://www.youare.nz/">You Are Ltd</a></p>
+  </div>
+</footer>
+
+<script>
+  // Pages that are directly linkable via URL hash (e.g. www.youare.nz/appfast#privacy)
+  // Other hash values (#features, #faq, etc.) are in-page anchors on the home page
+  // and are intentionally NOT routed here.
+  const deepLinkPages = ['privacy', 'terms', 'support'];
+
+  function showPage(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + page).classList.add('active');
+    if (page !== 'home') window.scrollTo(0, 0);
+    document.getElementById('navLinks').classList.remove('open');
+    // Keep URL in sync so pages are shareable / bookmarkable
+    const currentHash = window.location.hash.slice(1);
+    if (deepLinkPages.includes(page)) {
+      if (currentHash !== page) history.replaceState(null, '', '#' + page);
+    } else if (page === 'home' && deepLinkPages.includes(currentHash)) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+  }
+
+  // Deep-link routing: honour #privacy / #terms on initial load and hash changes
+  (function () {
+    function routeFromHash() {
+      const hash = window.location.hash.slice(1);
+      if (deepLinkPages.includes(hash)) showPage(hash);
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', routeFromHash);
+    } else {
+      routeFromHash();
+    }
+    window.addEventListener('hashchange', routeFromHash);
+  })();
+
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  }
+
+  // Close mobile nav when clicking a link
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+</script>
+
+
+</body>
+</html>
