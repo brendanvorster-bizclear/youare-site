@@ -60,6 +60,13 @@ header {
 header .wrap { display: flex; align-items: center; justify-content: space-between; }
 .nav-cta { font-family: var(--sans); font-size: 14px; letter-spacing: 0.01em; color: var(--ink); text-decoration: none; border-bottom: 1.5px solid var(--accent); padding-bottom: 2px; transition: color 0.2s ease; }
 .nav-cta:hover { color: var(--accent); }
+.topnav { display: flex; align-items: center; gap: 22px; }
+.nav-link { font-family: var(--sans); font-size: 14px; letter-spacing: 0.01em; color: var(--muted); text-decoration: none; transition: color 0.2s ease; }
+.nav-link:hover { color: var(--accent); }
+@media (max-width: 560px) { .topnav { gap: 16px; } .nav-res { display: none; } }
+.hero-alt { margin-top: 22px; font-family: var(--sans); font-size: 14px; color: var(--muted); }
+.hero-alt a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line-2); }
+.hero-alt a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
 /* Hero */
 .hero { position: relative; min-height: 94vh; display: flex; flex-direction: column; justify-content: center; padding: 140px 0 90px; overflow: hidden; }
@@ -192,7 +199,7 @@ footer a:hover { color: var(--accent); }
 <header>
 <div class="wrap">
 <div class="wordmark"><span class="a">You are</span><span class="dot"></span></div>
-<a class="nav-cta" href="#contact">Get in touch</a>
+<nav class="topnav"><a class="nav-link" href="/business">For business</a><a class="nav-link nav-res" href="/resources">Resources</a><a class="nav-cta" href="#contact">Get in touch</a></nav>
 </div>
 </header>
 
@@ -205,6 +212,7 @@ footer a:hover { color: var(--accent); }
 <div class="hero-actions">
 <a class="btn-primary" href="https://clientportal.zandahealth.com/clientportal/youare/home" target="_blank" rel="noopener">Book a free 15 minute conversation</a>
 </div>
+<p class="hero-alt">Here for your business? <a href="/business">How I work with owners, leaders and teams</a></p>
 </div>
 </section>
 
@@ -280,7 +288,7 @@ footer a:hover { color: var(--accent); }
 <div class="wrap">
 <p>You are <span class="fdot">&middot;</span> Coaching and counselling <span class="fdot">&middot;</span> Brendan Vorster, Registered Psychologist</p>
 <p>&copy; 2026 You Are Ltd <span class="fdot">&middot;</span> <a href="/card">Contact card</a></p>
-<p style="width:100%;margin-top:6px;"><a href="/hibiscus-coast">Hibiscus Coast</a> <span class="fdot">&middot;</span> <a href="/north-shore">North Shore</a> <span class="fdot">&middot;</span> <a href="/online">Online</a> <span class="fdot">&middot;</span> <a href="/christian-psychologist">Christian psychologist</a> <span class="fdot">&middot;</span> <a href="/afrikaans">Afrikaans</a> <span class="fdot">&middot;</span> <a href="/fees">Fees</a> <span class="fdot">&middot;</span> <a href="/more">How it goes</a></p>
+<p style="width:100%;margin-top:6px;"><a href="/hibiscus-coast">Hibiscus Coast</a> <span class="fdot">&middot;</span> <a href="/north-shore">North Shore</a> <span class="fdot">&middot;</span> <a href="/online">Online</a> <span class="fdot">&middot;</span> <a href="/christian-psychologist">Christian psychologist</a> <span class="fdot">&middot;</span> <a href="/afrikaans">Afrikaans</a> <span class="fdot">&middot;</span> <a href="/fees">Fees</a> <span class="fdot">&middot;</span> <a href="/more">How it goes</a> <span class="fdot">&middot;</span> <a href="/business">For business</a> <span class="fdot">&middot;</span> <a href="/resources">Resources</a></p>
 <p class="urgent">Urgent help: free call or text 1737 any time, or 111 in an emergency.</p>
 </div>
 </footer>
