@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Marriage Course at our place &middot; You are</title>
-<meta name="description" content="Seven Wednesday evenings of The Marriage Course, a fortnight apart from 11 November 2026, hosted by Brendan and Monya Vorster in Wainui.">
+<meta name="description" content="The Marriage Course at our home in Wainui, hosted by Brendan and Monya Vorster. The next course starts on 11 November 2026.">
 <meta name="robots" content="noindex">
 <meta property="og:title" content="The Marriage Course at our place">
-<meta property="og:description" content="Seven Wednesday evenings, a fortnight apart from 11 November, hosted by Brendan and Monya Vorster.">
+<meta property="og:description" content="The Marriage Course at our home in Wainui, hosted by Brendan and Monya Vorster.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.youare.nz/marriage">
 <meta property="og:image" content="https://www.youare.nz/og-image.jpg?v=3">
@@ -15,182 +15,310 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="You are. Brendan Vorster, Registered Psychologist.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#F4F0E9">
+<meta name="theme-color" content="#17110F">
 <link rel="canonical" href="https://www.youare.nz/marriage">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='7' fill='%23B25B3E'/%3E%3C/svg%3E">
 <style>
 :root {
-  --bg: #F4F0E9;
-  --bg-2: #ECE4D6;
-  --ink: #22201C;
-  --muted: #6B655B;
-  --line: #DDD6C8;
-  --accent: #B25B3E;
+  --bg: #17110F; --bg-2: #1D1613; --panel: #241B17; --panel-2: #2F241F;
+  --cream: #F6EEE4; --cream-2: #E6D8C8; --muted: #AE9F92; --faint: #76695E;
+  --line: rgba(246,238,228,0.11); --line-2: rgba(246,238,228,0.24);
+  --accent: #B25B3E; --accent-dark: #97492F; --rose: #E3A48C; --gold: #EBC08A;
   --serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Times New Roman', serif;
   --sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+  --ease: cubic-bezier(.2,.7,.2,1);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body {
-  background: var(--bg); color: var(--ink); font-family: var(--sans);
-  line-height: 1.6; -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility; overflow-x: hidden;
-}
+body { background: var(--bg); color: var(--cream); font-family: var(--sans); line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: hidden; }
 ::selection { background: var(--accent); color: #fff; }
-a { color: var(--ink); }
-.wrap { width: 100%; max-width: 760px; margin: 0 auto; padding: 0 48px; }
-.skip { position: absolute; left: -9999px; top: 0; background: var(--ink); color: #fff; padding: 10px 16px; z-index: 99; text-decoration: none; }
+a { color: inherit; }
+.wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 48px; }
+.skip { position: absolute; left: -9999px; top: 0; background: var(--accent); color: #fff; padding: 10px 16px; z-index: 99; text-decoration: none; }
 .skip:focus { left: 10px; top: 10px; }
+:focus-visible { outline: 2px solid var(--rose); outline-offset: 3px; }
 
 /* Header */
-header {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 20px 0;
-  backdrop-filter: saturate(140%) blur(9px);
-  -webkit-backdrop-filter: saturate(140%) blur(9px);
-  background: linear-gradient(to bottom, rgba(244,240,233,0.92), rgba(244,240,233,0));
-}
-header .wrap { max-width: 1160px; display: flex; align-items: center; justify-content: space-between; }
-.wordmark { display: flex; align-items: baseline; gap: 9px; font-family: var(--serif); letter-spacing: 0.01em; text-decoration: none; }
-.wordmark .a { font-size: 19px; font-weight: 400; color: var(--ink); }
+.top { position: fixed; top: 0; left: 0; right: 0; z-index: 60; padding: 22px 0; border-bottom: 1px solid transparent; transition: background .4s var(--ease), padding .4s var(--ease), border-color .4s; }
+.top.scrolled { background: rgba(23,17,15,0.82); -webkit-backdrop-filter: saturate(140%) blur(12px); backdrop-filter: saturate(140%) blur(12px); padding: 14px 0; border-bottom-color: var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; }
+.wordmark { display: flex; align-items: baseline; gap: 9px; font-family: var(--serif); text-decoration: none; color: var(--cream); }
+.wordmark .a { font-size: 19px; letter-spacing: 0.01em; }
 .wordmark .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); align-self: center; transform: translateY(1px); }
-.label { font-size: 13px; letter-spacing: 0.04em; color: var(--muted); }
+.top nav { display: flex; align-items: center; gap: 24px; }
+.label { font-size: 13.5px; color: var(--muted); }
+.pill { font-size: 14px; color: var(--cream); text-decoration: none; border: 1px solid var(--line-2); padding: 9px 18px; border-radius: 100px; transition: background .25s, border-color .25s; }
+.pill:hover { background: var(--accent); border-color: var(--accent); }
 
 /* Hero */
-.hero { position: relative; padding: 168px 0 88px; overflow: hidden; }
-.breath {
-  position: absolute; top: 52%; left: 70%; width: 620px; height: 620px; transform: translate(-50%, -50%);
-  background: radial-gradient(circle at center, rgba(178,91,62,0.15), rgba(178,91,62,0.04) 42%, transparent 68%);
-  border-radius: 50%; z-index: 0; animation: breathe 9s ease-in-out infinite alternate; pointer-events: none;
-}
-@keyframes breathe { from { transform: translate(-50%, -50%) scale(0.92); opacity: 0.72; } to { transform: translate(-50%, -50%) scale(1.08); opacity: 1; } }
-.hero .wrap { position: relative; z-index: 1; }
-.kicker { font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); margin-bottom: 28px; font-weight: 500; }
-h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(48px, 8.4vw, 88px); line-height: 1.02; letter-spacing: -0.018em; }
-.sub { margin-top: 30px; font-size: clamp(19px, 2.2vw, 22px); color: var(--muted); max-width: 34ch; line-height: 1.5; }
+.hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding: 130px 0 120px; overflow: hidden; isolation: isolate; }
+.glow { position: absolute; inset: 0; z-index: -3; pointer-events: none; }
+.glow span { position: absolute; top: 50%; width: 46vw; height: 46vw; max-width: 720px; max-height: 720px; border-radius: 50%; filter: blur(60px); mix-blend-mode: screen; }
+.glow .g1 { left: 50%; background: radial-gradient(circle, rgba(235,192,138,0.46), rgba(235,192,138,0) 64%); animation: meetL 14s ease-in-out infinite alternate, flicker 5s ease-in-out infinite; }
+.glow .g2 { left: 64%; background: radial-gradient(circle, rgba(227,164,140,0.44), rgba(227,164,140,0) 64%); animation: meetR 14s ease-in-out infinite alternate, flicker 6.5s ease-in-out infinite reverse; }
+@keyframes meetL { from { transform: translate(-62%, -50%); } to { transform: translate(-28%, -46%); } }
+@keyframes meetR { from { transform: translate(-6%, -54%); } to { transform: translate(-40%, -50%); } }
+@keyframes flicker { 0%, 100% { opacity: 0.88; } 50% { opacity: 1; } }
+.grain { position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0.07; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.rings { position: absolute; right: max(4vw, calc((100vw - 1120px) / 2)); top: 50%; width: min(36vw, 440px); transform: translateY(-50%); z-index: -2; opacity: 0.55; pointer-events: none; }
+.rings circle { fill: none; stroke: url(#rg); stroke-width: 1.2; }
+.js .rings circle { stroke-dasharray: 760; stroke-dashoffset: 760; animation: draw 3.6s var(--ease) forwards; }
+.js .rings circle:nth-of-type(2) { animation-delay: .5s; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.kicker { display: flex; align-items: center; gap: 14px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); }
+.kicker::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
+.title { margin-top: 28px; font-family: var(--serif); font-weight: 400; font-size: clamp(50px, 8vw, 118px); line-height: 0.98; letter-spacing: -0.026em; }
+.title .line { display: block; overflow: hidden; padding-bottom: 0.1em; }
+.title .line > span { display: inline-block; }
+.title em { font-style: italic; color: var(--rose); }
+.js .title .line > span { transform: translateY(108%); transition: transform 1.2s var(--ease); }
+.js .title.in .line > span { transform: none; }
+.js .title .line:nth-child(2) > span { transition-delay: .14s; }
+.lede { margin-top: 30px; max-width: 42ch; font-size: clamp(18px, 2vw, 22px); line-height: 1.55; color: var(--cream-2); }
+.actions { margin-top: 40px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 10px; font-size: 15.5px; font-weight: 500; letter-spacing: 0.01em; color: #FFF9F3; background: var(--accent); padding: 18px 30px; border-radius: 100px; text-decoration: none; box-shadow: 0 14px 36px -12px rgba(178,91,62,0.75); transition: background .3s, transform .3s var(--ease), box-shadow .3s; }
+.btn::after { content: '\2192'; transition: transform .3s var(--ease); }
+.btn:hover { background: var(--accent-dark); box-shadow: 0 18px 40px -12px rgba(178,91,62,0.9); }
+.btn:hover::after { transform: translateX(5px); }
+.meta { font-size: 14.5px; color: var(--muted); }
+.meta a { color: var(--cream); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 1px; }
+.meta a:hover { color: var(--rose); border-color: var(--rose); }
+.cue { position: absolute; left: 50%; bottom: 34px; width: 1px; height: 58px; background: var(--line); overflow: hidden; }
+.cue span { position: absolute; left: 0; top: -40%; width: 1px; height: 40%; background: var(--gold); animation: cue 2.4s var(--ease) infinite; }
+@keyframes cue { 0% { top: -40%; } 100% { top: 100%; } }
+
+/* Reveal */
+.js .reveal { opacity: 0; transform: translateY(30px); transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: var(--d, 0s); }
+.js .reveal.in { opacity: 1; transform: none; }
+
+/* Marquee */
+.marquee { overflow: hidden; padding: 24px 0; background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.marquee .track { display: flex; width: max-content; animation: marq 46s linear infinite; }
+.marquee span { padding: 0 24px; white-space: nowrap; font-family: var(--serif); font-size: clamp(22px, 3vw, 34px); font-style: italic; color: var(--faint); }
+.marquee span.b { font-style: normal; color: var(--cream-2); }
+.marquee i { align-self: center; width: 7px; height: 7px; border-radius: 50%; background: var(--rose); flex: none; opacity: .8; }
+@keyframes marq { to { transform: translateX(-50%); } }
 
 /* Sections */
-.band { padding: 72px 0; }
-.band.tint { background: var(--bg-2); }
-h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(28px, 3.4vw, 36px); line-height: 1.15; letter-spacing: -0.012em; }
-.offers { margin-top: 30px; }
-.offer { display: flex; gap: 18px; padding: 24px 0; border-top: 1px solid var(--line); }
-.offer:last-child { border-bottom: 1px solid var(--line); }
-.offer .k { flex: none; width: 9px; height: 9px; border-radius: 50%; background: var(--ink); margin-top: 11px; opacity: 0.8; }
-.offer h3 { font-family: var(--serif); font-weight: 400; font-size: 22px; letter-spacing: -0.005em; }
-.offer p { margin-top: 6px; font-size: 16.5px; color: var(--muted); max-width: 54ch; }
+.sec { position: relative; padding: 130px 0; }
+.eyebrow { font-size: 12.5px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); }
+h2 { margin-top: 18px; font-family: var(--serif); font-weight: 400; font-size: clamp(36px, 5.2vw, 66px); line-height: 1.03; letter-spacing: -0.022em; }
+h2 em { font-style: italic; color: var(--rose); }
 
-.prog { margin-top: 30px; border-top: 1px solid var(--line); list-style: none; }
-.prog li { display: grid; grid-template-columns: 120px 1fr; gap: 20px; align-items: baseline; padding: 15px 0; border-bottom: 1px solid var(--line); }
-.prog .date { font-size: 12.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
-.prog .name { font-family: var(--serif); font-size: 20px; letter-spacing: -0.005em; }
-.prog .pause .name { font-family: var(--sans); font-size: 15.5px; font-style: italic; color: var(--muted); }
+/* Evening steps */
+.steps { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px; margin-top: 74px; }
+.steps::before, .steps .fill { content: ''; position: absolute; left: 28px; right: calc((100% - 88px) / 3 - 28px); top: 28px; height: 1px; }
+.steps::before { background: var(--line-2); }
+.steps .fill { background: linear-gradient(90deg, var(--gold), var(--rose)); transform: scaleX(0); transform-origin: left; transition: transform 1.8s var(--ease); }
+.steps.run .fill { transform: scaleX(1); }
+.step .dotn { position: relative; z-index: 1; width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; font-family: var(--serif); font-size: 20px; background: var(--bg); border: 1px solid var(--line-2); transition: background .5s, border-color .5s, color .5s, box-shadow .5s; transition-delay: var(--d, 0s); }
+.steps.run .dotn { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: 0 0 0 8px rgba(235,192,138,0.12); }
+.step h3 { margin-top: 28px; font-family: var(--serif); font-weight: 400; font-size: 27px; line-height: 1.15; }
+.step p { margin-top: 10px; max-width: 30ch; color: var(--muted); }
 
-.facts { margin-top: 30px; border-top: 1px solid var(--line); }
-.facts div { display: grid; grid-template-columns: 120px 1fr; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--line); }
-.facts dt { font-size: 12.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-weight: 600; padding-top: 3px; }
-.facts dd { font-size: 17px; }
-.faith { margin-top: 26px; font-size: 15.5px; color: var(--muted); max-width: 58ch; }
+/* Programme timeline */
+.prog { position: relative; margin-top: 70px; max-width: 760px; }
+.prog::before, .prog .fill { content: ''; position: absolute; left: 13px; top: 14px; bottom: 14px; width: 1px; }
+.prog::before { background: var(--line-2); }
+.prog .fill { background: linear-gradient(180deg, var(--gold), var(--rose)); transform: scaleY(0); transform-origin: top; transition: transform 2.4s var(--ease); }
+.prog.run .fill { transform: scaleY(1); }
+.ev { position: relative; display: grid; grid-template-columns: 28px 120px 1fr; gap: 26px; align-items: baseline; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.ev .pt { position: relative; z-index: 1; width: 27px; height: 27px; border-radius: 50%; border: 1px solid var(--line-2); background: var(--bg); align-self: center; transition: background .6s, border-color .6s, box-shadow .6s; transition-delay: var(--d, 0s); }
+.prog.run .ev .pt { background: var(--panel-2); border-color: var(--rose); box-shadow: 0 0 0 6px rgba(227,164,140,0.08); }
+.prog.run .ev .pt::after { content: ''; position: absolute; inset: 9px; border-radius: 50%; background: var(--gold); }
+.ev .date { font-size: 12.5px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+.ev .name { font-family: var(--serif); font-size: clamp(22px, 2.4vw, 28px); line-height: 1.2; }
+.ev .num { display: block; margin-bottom: 2px; font-family: var(--sans); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--faint); }
+.ev.pause .pt { border-style: dashed; }
+.prog.run .ev.pause .pt { background: var(--bg); border-color: var(--line-2); box-shadow: none; }
+.prog.run .ev.pause .pt::after { display: none; }
+.ev.pause .date { color: var(--muted); }
+.ev.pause .name { font-family: var(--sans); font-size: 16px; font-style: italic; color: var(--muted); }
 
-/* Close */
-.close { padding: 88px 0 96px; }
-.hosts { font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 16px; }
-.actions { margin-top: 34px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
-.btn { display: inline-flex; align-items: center; gap: 9px; font-size: 15px; letter-spacing: 0.01em; color: #fff; background: var(--ink); padding: 15px 28px; border-radius: 100px; text-decoration: none; transition: gap 0.25s ease, background 0.25s ease; }
-.btn::after { content: '\2192'; }
-.btn:hover { gap: 14px; background: #000; }
-.actions .note { font-size: 15px; color: var(--muted); }
-.actions .note a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
+/* Hosts */
+.hosts { display: grid; grid-template-columns: 420px 1fr; gap: 88px; align-items: center; }
+.photo { position: relative; aspect-ratio: 4 / 5; }
+.photo::after { content: ''; position: absolute; inset: 18px -18px -18px 18px; border: 1px solid rgba(227,164,140,0.55); border-radius: 30px; z-index: 0; transition: inset .9s var(--ease); }
+.photo:hover::after { inset: 10px -10px -10px 10px; }
+.photo .frame { position: relative; z-index: 1; width: 100%; height: 100%; border-radius: 30px; overflow: hidden; background: radial-gradient(circle at 38% 42%, rgba(235,192,138,0.32), transparent 55%), radial-gradient(circle at 62% 58%, rgba(227,164,140,0.30), transparent 55%), var(--panel); display: grid; place-items: center; }
+.photo img { display: block; width: 100%; height: 100%; object-fit: cover; transform: scale(1.05); transition: transform 1.4s var(--ease); }
+.photo.in img { transform: scale(1); }
+.photo .ph { font-family: var(--serif); font-style: italic; font-size: 30px; color: var(--cream-2); }
+.hosts .sub { margin-top: 18px; max-width: 40ch; font-size: 19px; color: var(--cream-2); }
+.intro { margin-top: 20px; max-width: 46ch; font-size: 19px; color: var(--cream-2); }
+.photo.emblem { aspect-ratio: 1 / 1; }
+.emblem .frame { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; }
+.emblem .mono { width: 62%; }
+.emblem .mono circle { fill: none; stroke: url(#rg); stroke-width: 1.4; }
+
+/* Details */
+.facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 60px; }
+.fact { padding: 28px 26px; border-radius: 22px; background: linear-gradient(160deg, var(--panel-2), var(--panel) 62%); border: 1px solid var(--line); transition: border-color .3s, transform .4s var(--ease); }
+.fact:hover { border-color: rgba(227,164,140,0.5); transform: translateY(-4px); }
+.fact .k { font-size: 12px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); }
+.fact p { margin-top: 12px; font-family: var(--serif); font-size: clamp(20px, 2vw, 24px); line-height: 1.3; }
+.faith { margin-top: 30px; max-width: 60ch; font-size: 15.5px; color: var(--muted); }
+
+/* Final */
+.final { position: relative; padding: 160px 0 150px; text-align: center; overflow: hidden; isolation: isolate; border-top: 1px solid var(--line); }
+.final::before { content: ''; position: absolute; left: 50%; top: 50%; width: 980px; height: 980px; z-index: -1; transform: translate(-50%, -50%); background: radial-gradient(circle, rgba(235,192,138,0.22), rgba(178,91,62,0.14) 38%, transparent 62%); animation: pulse 8s ease-in-out infinite alternate; }
+@keyframes pulse { from { transform: translate(-50%, -50%) scale(0.9); opacity: 0.7; } to { transform: translate(-50%, -50%) scale(1.1); opacity: 1; } }
+.final h2 { max-width: 15ch; margin: 18px auto 0; font-size: clamp(42px, 6.4vw, 86px); }
+.final .sub { max-width: 44ch; margin: 26px auto 0; font-size: 19px; color: var(--cream-2); }
+.final .actions { justify-content: center; }
+
+/* Sticky sign up */
+.sticky { position: fixed; right: 24px; bottom: 24px; z-index: 70; opacity: 0; transform: translateY(140%); transition: transform .55s var(--ease), opacity .55s; pointer-events: none; }
+.sticky.show { opacity: 1; transform: none; pointer-events: auto; }
+.sticky a { display: inline-flex; align-items: center; gap: 11px; padding: 14px 22px; border-radius: 100px; background: var(--accent); color: #FFF9F3; text-decoration: none; font-size: 14.5px; font-weight: 500; box-shadow: 0 16px 36px -12px rgba(0,0,0,0.75); transition: background .25s; }
+.sticky a:hover { background: var(--accent-dark); }
+.sticky .ping { width: 8px; height: 8px; border-radius: 50%; background: #FFE9D6; animation: ping 2.2s infinite; }
+@keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(255,233,214,0.6); } 70% { box-shadow: 0 0 0 10px rgba(255,233,214,0); } 100% { box-shadow: 0 0 0 0 rgba(255,233,214,0); } }
 
 /* Footer */
-footer { border-top: 1px solid var(--line); padding: 32px 0 56px; }
-footer .wrap { max-width: 1160px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-footer p { font-size: 13px; color: var(--muted); letter-spacing: 0.02em; }
-footer .fdot { color: var(--accent); }
+footer { border-top: 1px solid var(--line); padding: 40px 0 72px; }
+footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+footer p { font-size: 13px; letter-spacing: 0.02em; color: var(--muted); }
+footer .fdot { color: var(--rose); }
 footer a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
+footer a:hover { color: var(--cream); }
 
-@media (max-width: 860px) { .wrap { padding: 0 28px; } }
+@media (max-width: 900px) {
+  .wrap { padding: 0 28px; }
+  .sec { padding: 100px 0; }
+  .rings { width: 70vw; right: -18vw; opacity: 0.35; }
+  .hosts { grid-template-columns: 1fr; gap: 56px; }
+  .photo { max-width: 340px; }
+  .steps { grid-template-columns: 1fr; gap: 36px; }
+  .steps::before, .steps .fill { left: 28px; right: auto; top: 28px; bottom: 28px; width: 1px; height: auto; }
+  .steps .fill { transform: scaleY(0); transform-origin: top; }
+  .steps.run .fill { transform: scaleY(1); }
+  .step { display: grid; grid-template-columns: 56px 1fr; gap: 22px; align-items: start; }
+  .step h3 { margin-top: 12px; }
+}
 @media (max-width: 560px) {
   .wrap { padding: 0 22px; }
-  .hero { padding: 132px 0 64px; }
-  .breath { width: 420px; height: 420px; left: 80%; }
   .label { display: none; }
-  .band { padding: 56px 0; }
-  .facts div { grid-template-columns: 1fr; gap: 4px; }
-  .prog li { grid-template-columns: 76px 1fr; gap: 14px; }
+  .hero { padding: 124px 0 120px; }
+  .kicker { gap: 12px; font-size: 11.5px; letter-spacing: 0.2em; }
+  .kicker::before { width: 22px; }
+  .sec { padding: 84px 0; }
+  .ev { grid-template-columns: 28px 1fr; gap: 6px 18px; }
+  .ev .date { grid-column: 2; }
+  .ev .name { grid-column: 2; }
+  .facts { grid-template-columns: 1fr; }
+  .final { padding: 120px 0 130px; }
+  .sticky { left: 16px; right: 16px; bottom: 16px; }
+  .sticky a { width: 100%; justify-content: center; }
+  footer { padding-bottom: 110px; }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .breath { animation: none; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+  .js .reveal { opacity: 1; transform: none; }
+  .js .title .line > span { transform: none; }
+  .js .rings circle { stroke-dashoffset: 0; }
+}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header>
+<header class="top">
 <div class="wrap">
 <a class="wordmark" href="/"><span class="a">You are</span><span class="dot"></span></a>
+<nav>
 <span class="label">The Marriage Course</span>
+<a class="pill" href="mailto:brendan@youare.nz?subject=Signing%20up%20for%20The%20Marriage%20Course&amp;body=Our%20names%3A%0AEmail%20for%20each%20of%20us%3A%0AMobile%3A%0AAnything%20we%20don%27t%20eat%3A%0ADates%20we%20can%27t%20make%20%28if%20any%29%3A%0A">Sign up</a>
+</nav>
 </div>
 </header>
 
 <main id="main">
 <section class="hero">
-<div class="breath" aria-hidden="true"></div>
+<div class="glow" aria-hidden="true"><span class="g1"></span><span class="g2"></span></div>
+<svg class="rings" viewBox="0 0 440 300" aria-hidden="true"><defs><linearGradient id="rg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#EBC08A"/><stop offset="1" stop-color="#E3A48C"/></linearGradient></defs><circle cx="165" cy="150" r="118"/><circle cx="275" cy="150" r="118"/></svg>
+<div class="grain" aria-hidden="true"></div>
 <div class="wrap">
-<p class="kicker">The Marriage Course &middot; from&nbsp;11&nbsp;November</p>
-<h1>You are each other&rsquo;s.</h1>
-<p class="sub">Seven Wednesday evenings at our home in Wainui, a fortnight apart. Each one is a short film over supper, then time for the two of you to talk.</p>
+<p class="kicker reveal">The Marriage Course &middot; Wainui</p>
+<h1 class="title"><span class="line"><span>You are</span></span><span class="line"><span><em>each other&rsquo;s</em>.</span></span></h1>
+<p class="lede reveal" style="--d:.35s">Seven evenings at our home, shared with a small group of couples. Each one is a short film over supper, then time for the two of you to talk.</p>
+<div class="actions reveal" style="--d:.5s">
+<a class="btn" href="mailto:brendan@youare.nz?subject=Signing%20up%20for%20The%20Marriage%20Course&amp;body=Our%20names%3A%0AEmail%20for%20each%20of%20us%3A%0AMobile%3A%0AAnything%20we%20don%27t%20eat%3A%0ADates%20we%20can%27t%20make%20%28if%20any%29%3A%0A">Sign up for the course</a>
+<span class="meta">or text <a href="sms:+6421390191">021 390 191</a></span>
+</div>
+</div>
+<div class="cue" aria-hidden="true"><span></span></div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="track">
+<span class="b">Supper</span><i></i><span>a short film</span><i></i><span class="b">Time to talk</span><i></i><span>just the two of you</span><i></i><span class="b">Seven evenings</span><i></i><span>at our place</span><i></i>
+<span class="b">Supper</span><i></i><span>a short film</span><i></i><span class="b">Time to talk</span><i></i><span>just the two of you</span><i></i><span class="b">Seven evenings</span><i></i><span>at our place</span><i></i>
+</div></div>
+
+<section class="sec">
+<div class="wrap">
+<p class="eyebrow reveal">Each evening</p>
+<h2 class="reveal">How an evening <em>goes</em>.</h2>
+<div class="steps">
+<span class="fill" aria-hidden="true"></span>
+<div class="step reveal" style="--d:0s"><div class="dotn">1</div><div><h3>Supper</h3><p>We start by eating together.</p></div></div>
+<div class="step reveal" style="--d:.15s"><div class="dotn" style="--d:.5s">2</div><div><h3>A short film</h3><p>Each session is a film with pauses built in for you to talk.</p></div></div>
+<div class="step reveal" style="--d:.3s"><div class="dotn" style="--d:1s">3</div><div><h3>Your conversation</h3><p>Just the two of you, somewhere quiet, with a journal each.</p></div></div>
+</div>
 </div>
 </section>
 
-<section class="band tint">
+<section class="sec" style="padding-top:20px;">
 <div class="wrap">
-<h2>How the evenings work</h2>
-<div class="offers">
-<div class="offer"><span class="k"></span><div><h3>Just the two of you</h3><p>Every conversation is between the two of you, at your own table.</p></div></div>
-<div class="offer"><span class="k"></span><div><h3>A journal each</h3><p>Yours to keep, with the main ideas and the questions for each evening.</p></div></div>
+<!-- Next course: the dates live here, in the final section's eyebrow and in the meta description. -->
+<p class="eyebrow reveal">Next course</p>
+<h2 class="reveal">The <em>programme</em>.</h2>
+<p class="intro reveal">Every second Wednesday at 7pm, from 11 November 2026.</p>
+<div class="prog">
+<span class="fill" aria-hidden="true"></span>
+<div class="ev reveal"><span class="pt" style="--d:.1s"></span><span class="date">11 Nov</span><span class="name"><span class="num">Session 1</span>Strengthening Connection</span></div>
+<div class="ev reveal"><span class="pt" style="--d:.4s"></span><span class="date">25 Nov</span><span class="name"><span class="num">Session 2</span>The Art of Communication</span></div>
+<div class="ev reveal"><span class="pt" style="--d:.7s"></span><span class="date">9 Dec</span><span class="name"><span class="num">Session 3</span>Resolving Conflict</span></div>
+<div class="ev pause reveal"><span class="pt"></span><span class="date">Summer</span><span class="name">A break over Christmas and early January</span></div>
+<div class="ev reveal"><span class="pt" style="--d:1.2s"></span><span class="date">20 Jan</span><span class="name"><span class="num">Session 4</span>The Power of Forgiveness</span></div>
+<div class="ev reveal"><span class="pt" style="--d:1.5s"></span><span class="date">3 Feb</span><span class="name"><span class="num">Session 5</span>The Impact of Family</span></div>
+<div class="ev reveal"><span class="pt" style="--d:1.8s"></span><span class="date">17 Feb</span><span class="name"><span class="num">Session 6</span>Good Sex</span></div>
+<div class="ev reveal"><span class="pt" style="--d:2.1s"></span><span class="date">3 Mar</span><span class="name"><span class="num">Session 7</span>Love in Action</span></div>
 </div>
 </div>
 </section>
 
-<section class="band">
-<div class="wrap">
-<h2>The programme</h2>
-<ul class="prog">
-<li><span class="date">11 Nov</span><span class="name">Strengthening Connection</span></li>
-<li><span class="date">25 Nov</span><span class="name">The Art of Communication</span></li>
-<li><span class="date">9 Dec</span><span class="name">Resolving Conflict</span></li>
-<li class="pause"><span class="date">Summer</span><span class="name">A break over Christmas and early January</span></li>
-<li><span class="date">20 Jan</span><span class="name">The Power of Forgiveness</span></li>
-<li><span class="date">3 Feb</span><span class="name">The Impact of Family</span></li>
-<li><span class="date">17 Feb</span><span class="name">Good Sex</span></li>
-<li><span class="date">3 Mar</span><span class="name">Love in Action</span></li>
-</ul>
+<section class="sec">
+<div class="wrap hosts">
+<div class="photo emblem reveal"><div class="frame"><svg class="mono" viewBox="0 0 440 300" aria-hidden="true"><circle cx="165" cy="150" r="118"/><circle cx="275" cy="150" r="118"/></svg><span class="ph">Brendan &amp; Monya</span></div></div>
+<div>
+<p class="eyebrow reveal">Your hosts</p>
+<h2 class="reveal">We&rsquo;d love to have you <em>over</em>.</h2>
+<div class="facts">
+<div class="fact reveal"><span class="k">Group</span><p>You and a few other couples</p></div>
+<div class="fact reveal" style="--d:.1s"><span class="k">Where</span><p>Our home in Wainui. We&rsquo;ll send the address when you sign up.</p></div>
+<div class="fact reveal" style="--d:.2s"><span class="k">Cost</span><p>NZ$30 each, for your journal and supper</p></div>
+<div class="fact reveal" style="--d:.3s"><span class="k">For</span><p>Married couples, and couples who have lived together for more than two years</p></div>
+</div>
+<p class="faith reveal">The Marriage Course comes from Alpha. It rests on Christian principles and is made for couples with or without faith.</p>
+</div>
 </div>
 </section>
 
-<section class="band tint">
+<section class="final">
 <div class="wrap">
-<h2>The details</h2>
-<dl class="facts">
-<div><dt>When</dt><dd>Every second Wednesday at 7pm, 11 November 2026 to 3 March 2027</dd></div>
-<div><dt>Where</dt><dd>Our home in Wainui. We&rsquo;ll send the address when you reply.</dd></div>
-<div><dt>Cost</dt><dd>NZ$30 each, for your journal and supper</dd></div>
-<div><dt>For</dt><dd>Married couples, and couples who have lived together for more than two years</dd></div>
-</dl>
-<p class="faith">The Marriage Course comes from Alpha. It rests on Christian principles and is made for couples with or without faith.</p>
-</div>
-</section>
-
-<section class="band close">
-<div class="wrap">
-<p class="hosts">Brendan and Monya Vorster</p>
-<h2>We&rsquo;d love to have you at our table.</h2>
-<div class="actions">
-<a class="btn" href="mailto:brendan@youare.nz?subject=The%20Marriage%20Course">Reply to Brendan</a>
-<span class="note">or text <a href="sms:+6421390191">021 390 191</a></span>
+<p class="eyebrow reveal">Next course &middot; from&nbsp;11&nbsp;November</p>
+<h2 class="reveal">Save your <em>place</em>.</h2>
+<div class="actions reveal">
+<a class="btn" href="mailto:brendan@youare.nz?subject=Signing%20up%20for%20The%20Marriage%20Course&amp;body=Our%20names%3A%0AEmail%20for%20each%20of%20us%3A%0AMobile%3A%0AAnything%20we%20don%27t%20eat%3A%0ADates%20we%20can%27t%20make%20%28if%20any%29%3A%0A">Sign up for the course</a>
+<span class="meta">or text <a href="sms:+6421390191">021 390 191</a></span>
 </div>
 </div>
 </section>
 </main>
+
+<div class="sticky" aria-hidden="true"><a href="mailto:brendan@youare.nz?subject=Signing%20up%20for%20The%20Marriage%20Course&amp;body=Our%20names%3A%0AEmail%20for%20each%20of%20us%3A%0AMobile%3A%0AAnything%20we%20don%27t%20eat%3A%0ADates%20we%20can%27t%20make%20%28if%20any%29%3A%0A" tabindex="-1"><span class="ping"></span>Sign up for the course</a></div>
 
 <footer>
 <div class="wrap">
@@ -198,5 +326,30 @@ footer a { color: var(--muted); text-decoration: none; border-bottom: 1px solid 
 <p><a href="/">youare.nz</a></p>
 </div>
 </footer>
+
+<script>
+(function () {
+  var d = document, root = d.documentElement;
+  root.classList.add('js');
+  var hasIO = 'IntersectionObserver' in window;
+  function showAll() { d.querySelectorAll('.reveal, .title, .photo').forEach(function (el) { el.classList.add('in'); }); d.querySelectorAll('.steps, .prog').forEach(function (el) { el.classList.add('run'); }); }
+  if (!hasIO) { showAll(); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+  d.querySelectorAll('.reveal, .title, .photo').forEach(function (el) { io.observe(el); });
+  d.querySelectorAll('.steps, .prog').forEach(function (el) {
+    var o = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { el.classList.add('run'); o.disconnect(); } }, { threshold: 0.3 });
+    o.observe(el);
+  });
+  var top = d.querySelector('.top');
+  function onScroll() { top.classList.toggle('scrolled', window.scrollY > 40); }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  var sticky = d.querySelector('.sticky'), hero = d.querySelector('.hero'), fin = d.querySelector('.final'), heroOut = false, finIn = false;
+  function stickyUpd() { var on = heroOut && !finIn; sticky.classList.toggle('show', on); sticky.setAttribute('aria-hidden', on ? 'false' : 'true'); var a = sticky.querySelector('a'); if (a) a.tabIndex = on ? 0 : -1; }
+  if (sticky && hero) new IntersectionObserver(function (es) { heroOut = !es[0].isIntersecting; stickyUpd(); }, { threshold: 0 }).observe(hero);
+  if (sticky && fin) new IntersectionObserver(function (es) { finIn = es[0].isIntersecting; stickyUpd(); }, { threshold: 0.1 }).observe(fin);
+})();
+</script>
 </body>
 </html>
