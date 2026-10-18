@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; font-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<base href="/knmrzjy5e6f8/">
+<title>Money view</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Money">
+<meta name="theme-color" content="#F4F0E9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#23201B" media="(prefers-color-scheme: dark)">
+<style>
+/* The private door to the You Are money view. Cream ground, ink words, one terracotta dot and button.
+   The view itself arrives encrypted (view.json) and opens in this browser with the passphrase. */
+:root {
+  --bg: #F4F0E9; --fg: #22201C; --muted: #6B655B; --line-2: #CEC6B6;
+  --accent: #B25B3E; --accent-hover: #97492F; --on-accent: #FFFFFF; --error: #97492F;
+  --glow-in: rgba(178, 91, 62, 0.17); --glow-out: rgba(178, 91, 62, 0.05);
+  --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #23201B; --fg: #F4EFE6; --muted: #B8AE9F; --line-2: #4C463D;
+    --accent: #CE7B5C; --accent-hover: #E08E6E; --on-accent: #23201B; --error: #E3967A;
+    --glow-in: rgba(206, 123, 92, 0.16); --glow-out: rgba(206, 123, 92, 0.04);
+    color-scheme: dark;
+  }
+}
+html, body { height: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+[hidden] { display: none !important; }
+.gate { box-sizing: border-box; min-height: 100%; display: grid; place-items: center; padding-block: 32px; padding-inline: 20px;
+  background: radial-gradient(55% 42% at 50% 40%, var(--glow-in), var(--glow-out) 60%, transparent 100%), var(--bg); }
+.card { width: 100%; max-width: 340px; }
+.wm { font-family: var(--serif); font-size: 30px; letter-spacing: -0.01em; text-align: center; }
+.wm i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); margin-left: 14px; vertical-align: 3.6px; }
+.eyebrow { text-align: center; font-size: 11.5px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); margin: 8px 0 30px; }
+form { display: grid; gap: 14px; }
+.who { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+label[for="pass"] { font-size: 13px; color: var(--muted); margin-bottom: -8px; }
+#pass { width: 100%; box-sizing: border-box; font: inherit; font-size: 17px; padding: 13px 16px; border: 1px solid var(--line-2); border-radius: 12px; background: var(--bg); color: var(--fg); }
+#pass:focus-visible, .open:focus-visible, .chip button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.keep { display: flex; gap: 10px; align-items: center; font-size: 14px; color: var(--muted); }
+.keep input { width: 18px; height: 18px; margin: 0; accent-color: var(--accent); }
+.open { font: inherit; font-size: 16px; border: 0; border-radius: 100px; padding: 14px 28px; background: var(--accent); color: var(--on-accent); cursor: pointer; }
+.open:hover { background: var(--accent-hover); }
+.open:disabled { opacity: 0.65; cursor: progress; }
+.msg { min-height: 1.4em; margin: 0; font-size: 14px; color: var(--error); text-align: center; }
+.when { margin: 6px 0 0; text-align: center; font-size: 13px; color: var(--muted); }
+.view { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; background: var(--bg); }
+.chip { position: fixed; right: 12px; bottom: 12px; z-index: 2; display: flex; gap: 8px; align-items: center; }
+.chip span, .chip button { font: inherit; font-size: 12.5px; padding: 6px 12px; border-radius: 100px; border: 1px solid var(--line-2); background: var(--bg); color: var(--muted); }
+.chip button { color: var(--fg); cursor: pointer; }
+</style>
+</head>
+<body>
+<main class="gate" id="gate" hidden>
+  <div class="card">
+    <div class="wm">You are<i></i></div>
+    <div class="eyebrow">Money view</div>
+    <form id="form" autocomplete="on">
+      <input class="who" type="text" name="username" autocomplete="username" value="You are money view" tabindex="-1" aria-hidden="true">
+      <label for="pass">Passphrase</label>
+      <input id="pass" name="password" type="password" autocomplete="current-password" required>
+      <label class="keep"><input id="keep" type="checkbox"> Keep it open on this device</label>
+      <button class="open" id="open" type="submit">Open</button>
+      <p class="msg" id="msg" role="status"></p>
+    </form>
+    <p class="when" id="when"></p>
+  </div>
+</main>
+<iframe class="view" id="view" title="Money view" sandbox="allow-scripts" hidden></iframe>
+<div class="chip" id="chip" hidden><span id="saved" hidden></span><button id="lock" type="button" hidden>Lock</button></div>
+<script>
+(function () {
+  'use strict';
+  // The worker that keeps a copy for offline use covers this folder only, so the address needs its closing slash.
+  if (!location.pathname.endsWith('/')) {
+    try {
+      if (!sessionStorage.getItem('mv-slash')) { sessionStorage.setItem('mv-slash', '1'); location.replace(location.pathname + '/' + location.search); return; }
+    } catch (e) {}
+  }
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js', { scope: './' }).catch(function () {});
+
+  var $ = function (id) { return document.getElementById(id); };
+  var gate = $('gate'), form = $('form'), pass = $('pass'), keep = $('keep'), btn = $('open'), msg = $('msg'),
+      whenEl = $('when'), frame = $('view'), chip = $('chip'), saved = $('saved'), lockBtn = $('lock');
+  var RSA = { name: 'RSA-OAEP', hash: 'SHA-256' };
+  var DATA = 'mv-data-v1';
+  var st = { key: null, view: null, fresh: true, priv: null, kept: false };
+  var HEAD = '<!doctype html><html lang="en-NZ"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="referrer" content="no-referrer"></head><body>';
+
+  function say(t) { msg.textContent = t || ''; }
+  function b64d(s) { var b = atob(s), u = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u; }
+  function when(iso) {
+    try { return new Date(iso).toLocaleString('en-NZ', { timeZone: 'Pacific/Auckland', weekday: 'short', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' }); }
+    catch (e) { return iso; }
+  }
+
+  // Fresh from the site when online; otherwise the copy saved on this device.
+  function getJSON(name) {
+    return fetch(name, { cache: 'no-store' }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      var copy = r.clone();
+      return r.json().then(function (j) {
+        return caches.open(DATA).then(function (c) { return c.put(name, copy); }).catch(function () {}).then(function () { return { j: j, fresh: true }; });
+      });
+    }).catch(function (err) {
+      return caches.open(DATA).then(function (c) { return c.match(name); }).then(function (hit) {
+        if (!hit) throw err;
+        return hit.json().then(function (j) { return { j: j, fresh: false }; });
+      });
+    });
+  }
+
+  // The unlocked key can stay on this device (it can't be copied out of the browser).
+  function idb(mode, fn) {
+    return new Promise(function (res, rej) {
+      var open = indexedDB.open('money-view', 1);
+      open.onupgradeneeded = function () { open.result.createObjectStore('k'); };
+      open.onerror = function () { rej(open.error); };
+      open.onsuccess = function () {
+        var tx = open.result.transaction('k', mode), q = fn(tx.objectStore('k'));
+        tx.oncomplete = function () { res(q && q.result); open.result.close(); };
+        tx.onerror = function () { rej(tx.error); };
+      };
+    });
+  }
+  function keptKey() { try { return idb('readonly', function (s) { return s.get('rsa'); }).catch(function () { return null; }); } catch (e) { return Promise.resolve(null); } }
+  function keepKey(k) { try { return idb('readwrite', function (s) { return s.put(k, 'rsa'); }).catch(function () {}); } catch (e) { return Promise.resolve(); } }
+  function forgetKey() { try { return idb('readwrite', function (s) { return s.delete('rsa'); }).catch(function () {}); } catch (e) { return Promise.resolve(); } }
+
+  async function decryptView(priv, v) {
+    var raw = await crypto.subtle.decrypt(RSA, priv, b64d(v.ek));
+    var aes = await crypto.subtle.importKey('raw', raw, 'AES-GCM', false, ['decrypt']);
+    var plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64d(v.iv) }, aes, b64d(v.ct));
+    if (!v.gz) return new TextDecoder().decode(plain);
+    var stream = new Blob([plain]).stream().pipeThrough(new DecompressionStream('gzip'));
+    return new Response(stream).text();
+  }
+
+  async function show(priv) {
+    var html = await decryptView(priv, st.view);
+    st.priv = priv;
+    frame.srcdoc = HEAD + html + '</body></html>';
+    frame.hidden = false;
+    gate.hidden = true;
+    saved.hidden = st.fresh;
+    saved.textContent = 'Saved copy, ' + when(st.view.updated);
+    lockBtn.hidden = !st.kept;
+    chip.hidden = st.fresh && !st.kept;
+  }
+
+  async function unlock(phrase, remember) {
+    var k = st.key, priv;
+    var base = await crypto.subtle.importKey('raw', new TextEncoder().encode(phrase.normalize('NFC')), 'PBKDF2', false, ['deriveKey']);
+    var kek = await crypto.subtle.deriveKey({ name: 'PBKDF2', hash: k.kdf.hash, salt: b64d(k.kdf.salt), iterations: k.kdf.iterations },
+      base, { name: 'AES-GCM', length: 256 }, false, ['unwrapKey']);
+    try {
+      priv = await crypto.subtle.unwrapKey('pkcs8', b64d(k.wrap.key), kek, { name: 'AES-GCM', iv: b64d(k.wrap.iv) }, RSA, false, ['decrypt']);
+    } catch (e) { throw new Error('pass'); }
+    if (remember) { await keepKey(priv); st.kept = true; }
+    await show(priv);
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    if (!pass.value) return;
+    btn.disabled = true; btn.textContent = 'Opening'; say('');
+    try { await unlock(pass.value, keep.checked); pass.value = ''; }
+    catch (err) {
+      say(err.message === 'pass' ? "That passphrase doesn't open it. Check it and try again." : 'It would not open here. Reload the page and try again.');
+      pass.select();
+    } finally { btn.disabled = false; btn.textContent = 'Open'; }
+  });
+
+  lockBtn.addEventListener('click', async function () {
+    await forgetKey();
+    st.priv = null; st.kept = false;
+    frame.srcdoc = ''; frame.hidden = true; chip.hidden = true; gate.hidden = false; keep.checked = false;
+    pass.focus();
+  });
+
+  // Coming back to the page picks up the morning's new copy.
+  document.addEventListener('visibilitychange', async function () {
+    if (document.visibilityState !== 'visible' || !st.priv) return;
+    try {
+      var v = await getJSON('view.json');
+      if (v.fresh && v.j.updated !== st.view.updated) { st.view = v.j; st.fresh = true; await show(st.priv); }
+    } catch (e) {}
+  });
+
+  async function start() {
+    gate.hidden = false;
+    if (!(window.crypto && crypto.subtle && window.DecompressionStream && window.indexedDB !== undefined)) {
+      say('This browser cannot open it. Safari or Chrome on an up-to-date phone or computer can.'); btn.disabled = true; return;
+    }
+    var k, v;
+    try { k = await getJSON('key.json'); } catch (e) { say('This page is not set up yet.'); btn.disabled = true; return; }
+    try { v = await getJSON('view.json'); } catch (e) { say('The money view is not here yet.'); btn.disabled = true; return; }
+    st.key = k.j; st.view = v.j; st.fresh = v.fresh;
+    whenEl.textContent = (v.fresh ? 'Updated ' : 'Offline. Saved copy from ') + when(st.view.updated);
+    var kept = await keptKey();
+    if (kept) {
+      try { st.kept = true; await show(kept); return; }
+      catch (e) { st.kept = false; await forgetKey(); }
+    }
+    pass.focus();
+  }
+  start();
+})();
+</script>
+</body>
+</html>
