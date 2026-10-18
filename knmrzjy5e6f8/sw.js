@@ -1,6 +1,6 @@
 // Keeps the money view page usable offline. Covers this folder only.
 // The page fetches key.json and view.json itself and keeps its own saved copies, so this worker leaves them alone.
-const SHELL = 'mv-shell-v1';
+const SHELL = 'mv-shell-v2';
 const FILES = ['./', 'manifest.webmanifest', 'icon-180.png', 'icon-192.png', 'icon-512.png'];
 
 self.addEventListener('install', (e) => {

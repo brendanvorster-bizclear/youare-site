@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <meta name="referrer" content="no-referrer">
-<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; font-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'; connect-src 'self' https://docs.google.com https://*.googleusercontent.com; img-src 'self' data:; font-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
 <base href="/knmrzjy5e6f8/">
 <title>Money view</title>
 <link rel="manifest" href="manifest.webmanifest">
@@ -18,7 +18,8 @@
 <meta name="theme-color" content="#23201B" media="(prefers-color-scheme: dark)">
 <style>
 /* The private door to the You Are money view. Cream ground, ink words, one terracotta dot and button.
-   The view itself arrives encrypted (view.json) and opens in this browser with the passphrase. */
+   The view arrives encrypted and opens in this browser with the passphrase. view.json is the whole page;
+   the published sheet holds the newest figures, which drop into that page when they are newer. */
 :root {
   --bg: #F4F0E9; --fg: #22201C; --muted: #6B655B; --line-2: #CEC6B6;
   --accent: #B25B3E; --accent-hover: #97492F; --on-accent: #FFFFFF; --error: #97492F;
@@ -95,7 +96,9 @@ label[for="pass"] { font-size: 13px; color: var(--muted); margin-bottom: -8px; }
       whenEl = $('when'), frame = $('view'), chip = $('chip'), saved = $('saved'), lockBtn = $('lock');
   var RSA = { name: 'RSA-OAEP', hash: 'SHA-256' };
   var DATA = 'mv-data-v1';
-  var st = { key: null, view: null, fresh: true, priv: null, kept: false };
+  // The morning run writes the newest figures here every day, with or without Brendan's Mac.
+  var SHEET = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS2ijzfLGFz4NWaOj4n00y0hjS-Vp_Ht9S4YP0WDhNnbhdJhBcJtf78MGImwI_NSTBaQPjFtLzrJB84/pub?output=tsv';
+  var st = { key: null, page: null, data: null, fresh: true, priv: null, kept: false };
   var HEAD = '<!doctype html><html lang="en-NZ"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="referrer" content="no-referrer"></head><body>';
 
   function say(t) { msg.textContent = t || ''; }
@@ -105,14 +108,17 @@ label[for="pass"] { font-size: 13px; color: var(--muted); margin-bottom: -8px; }
     catch (e) { return iso; }
   }
 
-  // Fresh from the site when online; otherwise the copy saved on this device.
-  function getJSON(name) {
-    return fetch(name, { cache: 'no-store' }).then(function (r) {
+  // Fresh from the web when online; otherwise the copy saved on this device. Only a copy that passes ok() is saved.
+  function getJSON(name, url, ok) {
+    return fetch(url || name, { cache: 'no-store' }).then(function (r) {
       if (!r.ok) throw new Error('HTTP ' + r.status);
-      var copy = r.clone();
-      return r.json().then(function (j) {
-        return caches.open(DATA).then(function (c) { return c.put(name, copy); }).catch(function () {}).then(function () { return { j: j, fresh: true }; });
-      });
+      return r.text();
+    }).then(function (text) {
+      var j = JSON.parse(text.trim());
+      if (ok && !ok(j)) throw new Error('not a sealed copy');
+      return caches.open(DATA).then(function (c) {
+        return c.put(name, new Response(JSON.stringify(j), { headers: { 'content-type': 'application/json' } }));
+      }).catch(function () {}).then(function () { return { j: j, fresh: true }; });
     }).catch(function (err) {
       return caches.open(DATA).then(function (c) { return c.match(name); }).then(function (hit) {
         if (!hit) throw err;
@@ -120,6 +126,11 @@ label[for="pass"] { font-size: 13px; color: var(--muted); margin-bottom: -8px; }
       });
     });
   }
+  function isData(j) { return !!(j && j.kind === 'data' && j.updated && j.iv && j.ek && j.ct); }
+  function getSheet() {
+    return getJSON('sheet.json', SHEET, isData).then(function (d) { return isData(d.j) ? d : null; }).catch(function () { return null; });
+  }
+  function newest() { return st.data && st.data.updated > st.page.updated ? st.data.updated : st.page.updated; }
 
   // The unlocked key can stay on this device (it can't be copied out of the browser).
   function idb(mode, fn) {
@@ -148,13 +159,22 @@ label[for="pass"] { font-size: 13px; color: var(--muted); margin-bottom: -8px; }
   }
 
   async function show(priv) {
-    var html = await decryptView(priv, st.view);
+    var html = await decryptView(priv, st.page);
     st.priv = priv;
+    if (st.data && st.data.updated > st.page.updated) {
+      try {   // newer figures from the sheet go into the page's data block; if they won't open, the page keeps its own
+        var json = await decryptView(priv, st.data);
+        JSON.parse(json);
+        html = html.replace(/(<script id="data" type="application\/json">)[\s\S]*?(<\/script>)/, function (m, a, b) {
+          return a + '\n' + json.replace(/<\//g, '<\\/') + '\n' + b;
+        });
+      } catch (e) { st.data = null; }
+    }
     frame.srcdoc = HEAD + html + '</body></html>';
     frame.hidden = false;
     gate.hidden = true;
     saved.hidden = st.fresh;
-    saved.textContent = 'Saved copy, ' + when(st.view.updated);
+    saved.textContent = 'Saved copy, ' + when(newest());
     lockBtn.hidden = !st.kept;
     chip.hidden = st.fresh && !st.kept;
   }
@@ -193,8 +213,12 @@ label[for="pass"] { font-size: 13px; color: var(--muted); margin-bottom: -8px; }
   document.addEventListener('visibilitychange', async function () {
     if (document.visibilityState !== 'visible' || !st.priv) return;
     try {
-      var v = await getJSON('view.json');
-      if (v.fresh && v.j.updated !== st.view.updated) { st.view = v.j; st.fresh = true; await show(st.priv); }
+      var before = newest();
+      var v = await getJSON('view.json'), d = await getSheet();
+      if (v.fresh) st.page = v.j;
+      if (d && d.fresh) st.data = d.j;
+      st.fresh = v.fresh || !!(d && d.fresh);
+      if (newest() !== before) await show(st.priv);
     } catch (e) {}
   });
 
@@ -206,8 +230,9 @@ label[for="pass"] { font-size: 13px; color: var(--muted); margin-bottom: -8px; }
     var k, v;
     try { k = await getJSON('key.json'); } catch (e) { say('This page is not set up yet.'); btn.disabled = true; return; }
     try { v = await getJSON('view.json'); } catch (e) { say('The money view is not here yet.'); btn.disabled = true; return; }
-    st.key = k.j; st.view = v.j; st.fresh = v.fresh;
-    whenEl.textContent = (v.fresh ? 'Updated ' : 'Offline. Saved copy from ') + when(st.view.updated);
+    var d = await getSheet();
+    st.key = k.j; st.page = v.j; st.data = d ? d.j : null; st.fresh = v.fresh || !!(d && d.fresh);
+    whenEl.textContent = (st.fresh ? 'Updated ' : 'Offline. Saved copy from ') + when(newest());
     var kept = await keptKey();
     if (kept) {
       try { st.kept = true; await show(kept); return; }
